@@ -1,0 +1,12 @@
+@font-face {
+    font-family: AdamPro;
+    src: url(ADAM.CGPRO.otf);
+}
+
+body {
+    background-color: red!important;
+}
+
+h1 {
+    color: red!important;
+}
