@@ -10,7 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "./sass/main.scss";
 /*Load custom fonts */
 @font-face {
   font-family: 'adam';
