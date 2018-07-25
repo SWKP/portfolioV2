@@ -1,39 +1,74 @@
 <template>
-  <div class="project">
-    <div class="project__info">
-        <div class="project__date">
-            <h4>July 2018 <span>1</span></h4>
-        </div>
-        <div class="project__data">
-            <div class="urlTitle">
-                <h2>Website URL</h2>
+    <ul>
+        <li v-for="website in websites">
+            <div class="project">
+                <div class="project__info">
+                    <div class="project__date">
+                        <h4>{{ website.date }} <span>{{ website.number }}</span></h4>
+                    </div>
+                    <div class="project__data">
+                        <div class="urlTitle">
+                            <h2>{{ website.url }}</h2>
+                        </div>
+                        <div class="detailsTitle">
+                            <h4>Project Details</h4>
+                        </div>
+                        <div class="detailsList">
+                            <ul>
+                                <li v-for="detail in website.details">{{ detail.feature }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__image">
+                    <h3>{{ website.name }}</h3>
+                </div>
             </div>
-            <div class="detailsTitle">
-                <h4>Project Details</h4>
-            </div>
-            <div class="detailsList">
-                <ul>
-                <li>Wordpress</li>
-                <li>Ecommerce</li>
-                <li>Custom Menu</li>
-            </ul>
-            </div>
-        </div>
-    </div>
-    <div class="project__image">
-        <h3>Project Name</h3>
-    </div>
-  </div>
+        </li>
+    </ul>
 </template>
 
 <script>
     
     export default {
-
+        data() {
+            return {
+                websites: [
+                    {
+                        number: '1',
+                        date: 'June 1999',
+                        name: 'Project Name 1',
+                        url: 'Url 1',
+                        image: '',
+                        details: [
+                            { feature: 'Wordpress 1' },
+                            { feature: 'Ecommerce 1' },
+                            { feature: 'Custom Menu 1' },
+                            { feature: 'Feature 4!' }
+                        ]
+                    },
+                    {
+                        number: '2',
+                        date: 'August 2049',
+                        name: 'Project Name 2',
+                        url: 'Url 2',
+                        image: '',
+                        details: [
+                            { feature: 'Wordpress 2' },
+                            { feature: 'Ecommerce2 ' },
+                            { feature: 'Custom Menu 2' }
+                        ]
+                    }
+                ]
+            }
+        }
     }
 </script>
 
 <style lang="scss">
+    ul {
+        list-style-type: none;
+    }
     .project {
       margin-top: 8rem;
       width: 100%;
@@ -66,13 +101,16 @@
             letter-spacing: 1rem;
             text-align: center;
             color: #A3A3A3;
+            line-height: 1.5rem;
 
             span {
                 position: absolute;
+                -webkit-transform: rotate(90deg);
                 transform: rotate(90deg);
                 color: #3A3A3A;
                 font-size: 4rem;
-                top: -1.5rem;
+                top: 0.5rem;
+                height: 100%;
                 right: -5rem;
             }
           }
@@ -89,6 +127,14 @@
               width: 100%;
               text-align: center;
               border-bottom: 4px solid #3A3A3A;
+              transition: all .3s;
+
+              &:hover {
+                  background: var(--main-highlight-color);
+              }
+              &:hover h2 {
+                  color: white;
+              }
 
               h2 {
               color: #A3A3A3;

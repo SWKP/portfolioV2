@@ -4,6 +4,7 @@
       <h4>- Karol Poniatowski -</h4>
       <h1>Web dev & Design</h1>
       <h5>Napa, California</h5>
+      <span>Scroll (Down)</span>
     </div>
   </div>
 </template>
@@ -17,8 +18,9 @@
 
 <style lang="scss">
 .header {
-  height: 80vh;
+  height: 100vh;
   background-color: #3a3a3a;
+  //background: linear-gradient(#868686 -200%, #3a3a3a);
 
   &__inner {
     width: 765px;
@@ -50,9 +52,8 @@
       color: #b2b2b2;
     }
 
-    &::after {
+    span {
       font-family: "adam", Helvetica, Arial, sans-serif;
-      content: "Scroll (down)";
       color: white;
       position: absolute;
       left: 30%;
@@ -62,6 +63,30 @@
       height: 0.25rem;
       transform: rotate(-90deg);
       background-color: #2b2b2b;
+
+      &::before {
+        content: '';
+        height: 210rem;
+        transform: rotate(90deg);
+        border-right: 2px solid #2b2b2b;
+        position: absolute;
+        left: -114rem;
+        width: 16rem;
+        bottom: -97rem;
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        width: 0; 
+        height: 0; 
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-right:10px solid #2b2b2b; 
+        position: absolute;
+        left: 0px;
+        bottom: -9px;
+      }
     }
   }
 }

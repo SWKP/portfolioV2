@@ -52,4 +52,11 @@ h3 {font-size: 4rem;}
 h4 {font-size: 2rem;}
 h5 {font-size: 1rem;}
 p {font-size: 1.7rem;}
+
+//Variables
+:root {
+  //colors
+  --main-highlight-color: #E91E63;
+}
+
 </style>

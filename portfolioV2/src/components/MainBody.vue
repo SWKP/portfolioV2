@@ -8,8 +8,6 @@
       <div class="mainBody__projects">
       
       <app-project></app-project>
-      <app-project></app-project>
-      <app-project></app-project>
 
         <div class="loadMore">
             <h4>Load More Websites</h4>
@@ -27,6 +25,12 @@ import Project from './Project';
         components: {
             appNavigation: Navigation,
             appProject: Project
+            
+        },
+        data() {
+            return {
+                
+            }
         }
     }
 </script>
@@ -41,22 +45,22 @@ import Project from './Project';
 
         .projectsTitle {
             display: inline-block;
-            width: 200%;
+            width: 195%;
             position: relative;
             right: 150%;
             background: #BCBCBC;
             margin: 10rem 0;
             -webkit-clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
             clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
+            
 
             h1 {
-                padding: 4rem;
+                padding: 4rem 10rem 5rem;
                 text-align: right;
                 font-family: "adam", Helvetica, Arial, sans-serif;
                 color: #777777;
                 font-weight: 100;
-                font-size: 4rem;
-                padding-right: 10rem;
+                font-size: 3rem;
                 letter-spacing: 2rem;
             }
         }
