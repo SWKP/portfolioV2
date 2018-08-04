@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project__image">
+                <div class="project__image" :style="{ backgroundImage: 'url(' + website.image + ')' }" >
                     <h3>{{ website.name }}</h3>
                 </div>
             </div>
@@ -36,27 +36,52 @@
                 websites: [
                     {
                         number: '1',
-                        date: 'June 1999',
-                        name: 'Project Name 1',
-                        url: 'Url 1',
-                        image: '',
+                        date: 'Sep 2017',
+                        name: 'Napa Valley Film Festival',
+                        url: 'nvff.org',
+                        image: 'http://karolponiatowski.com/projects/images/portfolio/nvff-project.png',
                         details: [
-                            { feature: 'Wordpress 1' },
-                            { feature: 'Ecommerce 1' },
-                            { feature: 'Custom Menu 1' },
-                            { feature: 'Feature 4!' }
+                            { feature: 'Wordpress' },
+                            { feature: 'High traffic Ecommerce' },
+                            { feature: 'Custom navigation' },
+                            { feature: 'Events implementation' }
                         ]
                     },
                     {
                         number: '2',
-                        date: 'August 2049',
-                        name: 'Project Name 2',
-                        url: 'Url 2',
-                        image: '',
+                        date: 'Feb 2018',
+                        name: 'Dixicoin',
+                        url: 'dixicoin.net',
+                        image: 'http://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png',
                         details: [
-                            { feature: 'Wordpress 2' },
-                            { feature: 'Ecommerce2 ' },
-                            { feature: 'Custom Menu 2' }
+                            { feature: 'Bootstrap' },
+                            { feature: 'Custom SVG' }
+                        ]
+                    },
+                    {
+                        number: '3',
+                        date: 'May 2018',
+                        name: 'Petaluma Museum',
+                        url: 'petalumamuseum.com',
+                        image: 'http://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png',
+                        details: [
+                            { feature: 'Wordpress' },
+                            { feature: 'Agile development' },
+                            { feature: 'Events implementation' }
+
+                        ]
+                    },
+                    {
+                        number: '4',
+                        date: 'Mar 2018',
+                        name: 'RoundOne',
+                        url: 'roundone.win',
+                        image: 'http://karolponiatowski.com/projects/images/portfolio/roundOne-project.png',
+                        details: [
+                            { feature: 'Bootstrap' },
+                            { feature: 'Custom SVG' },
+                            { feature: 'Brand development'}
+
                         ]
                     }
                 ]
@@ -70,7 +95,7 @@
         list-style-type: none;
     }
     .project {
-      margin-top: 8rem;
+      margin-top: 2rem;
       width: 100%;
       height: 25rem;
       background-color: rgb(71, 71, 71);
@@ -188,8 +213,22 @@
           position: relative;
           margin-left: -10rem;
           background-color: #838383;
+          background-size: cover;
           flex: 2;
           z-index: 9;
+
+          &::before {
+              content:'';
+              background: #07ff2775;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              transition: all .3s;
+          }
+
+          &:hover::before {
+              background: none;
+          }
 
           h3 {
               position: absolute;

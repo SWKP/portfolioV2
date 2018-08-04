@@ -5,19 +5,25 @@
             <button type="submit"><i class="fa fa-search"></i></button>
             </div>
         <ul>
-            <li>Websites</li>
-            <li>Code</li>
-            <li>3d</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li v-on:click="changeComponent('app-website')">Websites</li>
+            <li v-on:click="changeComponent('app-code')">Code</li>
+            <li v-on:click="changeComponent('app-threeD')">3d</li>
+            <li v-on:click="changeComponent('app-about')">About</li>
+            <li v-on:click="changeComponent('app-contact')">Contact</li>
         </ul>
     </div>
 </template>
 
 <script>
+    import { bus } from '../main.js';
     
     export default {
-
+        methods: {
+            changeComponent: function (component){
+                bus.$emit('componentChanged', component);
+                console.log(component);
+            }
+        }
     }
 </script>
 
@@ -30,6 +36,7 @@
         z-index: 1;
 
         ul li {
+            cursor: pointer;
             display: inline-block;
             color: #C6C6C6;
             font-size: 1.75rem;

@@ -6,8 +6,14 @@
       <app-Navigation></app-Navigation>
       <div class="mainBody__inner">
       <div class="mainBody__projects">
-      
-      <app-project></app-project>
+
+      <transition name="fade" mode="out-in">
+      <component v-bind:is="activeComponent"></component>   
+      </transition>   
+      <!--
+      <app-website></app-website>
+      <app-code></app-code>
+      -->
 
         <div class="loadMore">
             <h4>Load More Websites</h4>
@@ -18,21 +24,37 @@
 </template>
 
 <script>
+import { bus } from '../main.js';
+
 import Navigation from './Navigation';
-import Project from './Project';
+import Website from './Website';
+import Code from './Code';
+import ThreeD from './ThreeD';
+import About from "./About";
+import Contact from './Contact';
+
     
-    export default {
-        components: {
-            appNavigation: Navigation,
-            appProject: Project
-            
-        },
-        data() {
-            return {
-                
-            }
+export default {
+    components: {
+        appNavigation: Navigation,
+        appWebsite: Website,
+        appCode: Code,
+        appThreeD: ThreeD,
+        appAbout: About,
+        appContact: Contact
+        
+    },
+    data() {
+        return {
+            activeComponent: 'app-about'
         }
+    },
+    created(){
+        bus.$on('componentChanged', (data) => {
+            this.activeComponent = data;
+        });
     }
+}
 </script>
 
 <style lang="scss">
@@ -74,11 +96,14 @@ import Project from './Project';
     }
 
     .loadMore {
+        position:relative;
+        z-index: 0;
         text-align: center;
-        margin: 5rem 0 40rem 0;
+        margin: 5rem 0 20rem 0;
         background-color: #BCBCBC;
         padding: 5rem 0 8rem 0;
-        clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
 
         & h4 {
             color: #565656;
@@ -87,4 +112,15 @@ import Project from './Project';
         }
         
     }
+
+    .fade-enter-active, .fade-leave-active {
+            transform: rotateX(0deg);
+  transition: all 0.25s cubic-bezier(0.42, 0, 0.58, 1);;
+}
+
+.fade-enter, .fade-leave-to {
+  filter: blur(1rem);
+  opacity: 0;
+  transform: rotateX(90deg);
+}
 </style>

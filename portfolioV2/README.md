@@ -1,6 +1,6 @@
 # portfolio
 
-> My portfolio website v2
+> My portfolio
 
 ## Build Setup
 

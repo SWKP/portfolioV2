@@ -12,7 +12,7 @@
             <h5>Codedefrag.com</h5>
         </div>
         <div class="copyright">
-            2018 - Karol Poniatowski
+            2018 - Powered by Vue
         </div>
     </div>
 </template>
@@ -68,10 +68,12 @@
     .copyright {
         flex-grow: 2;
         color: #424242;
+        background-color: #252525;
         text-align: center;
         font-family: "adam", Helvetica, Arial, sans-serif;
         font-size: 1.75rem;
         letter-spacing: 3rem;
+        padding-top: 10rem;
         line-height: 3rem;
     }
 </style>

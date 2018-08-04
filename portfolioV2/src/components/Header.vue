@@ -54,7 +54,7 @@
 
     span {
       font-family: "adam", Helvetica, Arial, sans-serif;
-      color: white;
+      color: #CDDC39;
       position: absolute;
       left: 30%;
       top: 300px;
@@ -66,13 +66,14 @@
 
       &::before {
         content: '';
-        height: 210rem;
+        height: 47rem;
+        -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
-        border-right: 2px solid #2b2b2b;
+        border-right: 3px solid #2b2b2b;
         position: absolute;
-        left: -114rem;
-        width: 16rem;
-        bottom: -97rem;
+        left: -50rem;
+        width: 47rem;
+        bottom: 0rem;
         z-index: -1;
       }
 
