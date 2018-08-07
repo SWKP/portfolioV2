@@ -8,7 +8,7 @@
             <a href="#"><img src="../assets/svg/steam.svg" alt=""></a>
         </div>
         <div class="otherSites">
-            <h4>Other Sites</h4>
+            <h4>My Other Sites</h4>
             <h5>Codedefrag.com</h5>
         </div>
         <div class="copyright">
@@ -49,19 +49,29 @@
         }
     }
     .otherSites {
+        width: 400px;
+        height: 10px;
+        margin: 0 auto 5rem;
+        background: #424242;
         flex-grow: 3;
         text-align: center;
         font-family: "adam", Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
         h4 {
+            flex: 1;
             font-size: 1.75rem;
-            color: #BCBCBC;
+            color: #2b2b2b;
+            padding-top: 1rem;
         }
         h5 {
+            flex: 2;
             margin-top: 1rem;
             font-size: 2.25rem;
-            font-weight: 100;
-            color: #424242;
+            font-weight: 900;
+            color: #c1d034;
             letter-spacing: .75rem;
         }
     }
@@ -72,8 +82,21 @@
         text-align: center;
         font-family: "adam", Helvetica, Arial, sans-serif;
         font-size: 1.75rem;
-        letter-spacing: 3rem;
+        letter-spacing: 2rem;
         padding-top: 10rem;
         line-height: 3rem;
     }
+
+    .socialIcons a img {
+        transition: all .3s;
+        position: relative;
+    }
+
+    .socialIcons a img:hover {
+        filter: brightness(3) ;
+        transform: scale(1.2);
+    }
+
+    
+
 </style>

@@ -46,7 +46,7 @@ export default {
     },
     data() {
         return {
-            activeComponent: 'app-about'
+            activeComponent: 'app-contact'
         }
     },
     created(){
@@ -99,7 +99,7 @@ export default {
         position:relative;
         z-index: 0;
         text-align: center;
-        margin: 5rem 0 20rem 0;
+        margin: 2rem 0 20rem 0;
         background-color: #BCBCBC;
         padding: 5rem 0 8rem 0;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
