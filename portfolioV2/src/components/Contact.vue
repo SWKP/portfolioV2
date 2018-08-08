@@ -1,47 +1,146 @@
 <template>
-  <div class="container">
-    <h1 class="title">
-      Contact
-    </h1>
-    <div class="content">
-      <form name="contact" action="" method="post">
-        <label class="form-label" for="name">
-          Name:
-        </label>
-        <input class="form-field" name="name" id="name" />
-        <label class="form-label" for="email">
-          Email:
-        </label>
-        <input class="form-field" name="email" id="email" />
-        <label class="form-label" for="message">
-          Message:
-        </label>
-        <textarea class="form-field" name="message" id="message"></textarea>
-        <input class="form-button" type="submit" value="Send message" />
-      </form>
-    </div>
-  </div>
+  <div class="contact-form">
+		<h1 class="contact-form_title">Shoot me a message</h1>
+
+		<div v-if="isSending" class="loading">Sending...</div>
+
+		<form class="form" @submit="onSubmit">
+			<input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
+			<input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
+			<textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
+		   <button class="button">Send</button>
+		</form>
+	</div>
 </template>
 
 <script>
     
     export default {
+        
         components: {
 
+        },
+        data() {
+            return {
+            contact: {
+                name: '',
+                email: '',
+                message: '',
+            },
+
+            isSending: false
+        }
+        },
+        methods: {
+
+            /**
+             * Clear the form
+             */	
+            clearForm() {
+                for (let field in this.contact) {
+                    this.contact[field] = ''
+                }
+            },
+
+            /**
+             * Handler for submit
+             */	
+            onSubmit(evt) {
+                evt.preventDefault();
+
+                this.isSending = true;
+
+                setTimeout(() => {
+                    // Build for data
+                    let form = new FormData();
+                    for (let field in this.contact) {
+                        form.append(field, this.contact[field]);
+                    }
+
+                    // Send form to server	
+                    this.$http.post('/app.php', form).then((response) => {
+                        console.log(response);
+                        this.clearForm();
+                        this.isSending = false;
+                    }).catch((e) => {
+                        console.log(e)
+                    });
+
+                }, 1000);
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    .code {
-        width: 100%;
-        background: rgb(136, 136, 136);
-        z-index: 10;
-        position: relative;
+    .contact-form {
+	font-family: 16px;
+	margin: 15rem auto;
+	max-width: 600px;
+	width: 100%;
+}
 
-        h1 {
-            text-align: center;
-            padding: 20rem 0;
-        }
-    }
+.contact-form .separator {
+	border-bottom: solid 1px #ccc;
+	margin-bottom: 15px;
+}
+
+.contact-form .form {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+
+.contact-form_title {
+    color: #564e4e;
+    font-family: "adam", Helvetica, Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 200;
+    text-align: center;
+    letter-spacing: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+	font-family: "brandon", Helvetica, Arial, sans-serif;
+	padding: 15px 20px;
+	margin-bottom: 15px;
+	outline: none;
+    background: #2b2b2b;
+    border: none;
+    transition: background-color 200ms linear;
+}
+
+.contact-form textarea {
+	resize: none;
+}
+
+.contact-form input:focus,
+textarea:focus {
+    background-color: #bcbcbc;
+}
+
+.contact-form .button {
+	background: var(--main-highlight-color);
+	border: solid 1px #da552f;
+	color: white;
+	cursor: pointer;
+	padding: 10px 50px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.contact-form .button:hover {
+	background: #ea532a;
+	border: solid 1px #ea532a;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea,
+.contact-form .button {
+	font-size: 15px;
+}
 </style>
