@@ -8,8 +8,12 @@
 			<input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
 			<input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
 			<textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
-		   <button class="button">Send</button>
 		</form>
+        <div class="button">
+            <span class="button__mask"></span>
+            <span class="button__text">Send</span>
+            <span class="button__text button__text--bis">Send</span>
+         </div>
 	</div>
 </template>
 
@@ -97,7 +101,7 @@
     font-size: 3rem;
     font-weight: 200;
     text-align: center;
-    letter-spacing: 1.4rem;
+    letter-spacing: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -127,20 +131,23 @@ textarea:focus {
 	border: solid 1px #da552f;
 	color: white;
 	cursor: pointer;
-	padding: 10px 50px;
 	text-align: center;
 	text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1rem;
 }
 
+/*
 .contact-form .button:hover {
 	background: #ea532a;
 	border: solid 1px #ea532a;
 }
+*/
 
 .contact-form input[type="email"],
 .contact-form input[type="text"],
-.contact-form textarea,
-.contact-form .button {
+.contact-form textarea {
 	font-size: 15px;
 }
+
 </style>

@@ -5,11 +5,43 @@
             <button type="submit"><i class="fa fa-search"></i></button>
             </div>
         <ul>
-            <li v-on:click="changeComponent('app-website')">Websites</li>
-            <li v-on:click="changeComponent('app-code')">Code</li>
-            <li v-on:click="changeComponent('app-threeD')">3d</li>
-            <li v-on:click="changeComponent('app-about')">About</li>
-            <li v-on:click="changeComponent('app-contact')">Contact</li>
+            <li v-on:click="changeComponent('app-website')">
+                <router-link to="/testing">
+                <div class="button">
+                    <span class="button__mask"></span>
+                    <span class="button__text">Websites</span>
+                    <span class="button__text button__text--bis">Websites</span>
+                </div>
+                </router-link>
+            </li>
+            <li v-on:click="changeComponent('app-code')">
+                <div class="button">
+                    <span class="button__mask"></span>
+                    <span class="button__text">Code</span>
+                    <span class="button__text button__text--bis">Code</span>
+                </div>
+            </li>
+            <li v-on:click="changeComponent('app-threeD')">
+                <div class="button">
+                    <span class="button__mask"></span>
+                    <span class="button__text">3D</span>
+                    <span class="button__text button__text--bis">3D</span>
+                </div>
+            </li>
+            <li v-on:click="changeComponent('app-about')">
+                <div class="button">
+                    <span class="button__mask"></span>
+                    <span class="button__text">About</span>
+                    <span class="button__text button__text--bis">About</span>
+                </div>
+            </li>
+            <li v-on:click="changeComponent('app-contact')">
+                <div class="button">
+                    <span class="button__mask"></span>
+                    <span class="button__text">Contact</span>
+                    <span class="button__text button__text--bis">Contact</span>
+                </div>
+            </li>
         </ul>
     </div>
 </template>
@@ -28,6 +60,10 @@
 </script>
 
 <style lang="scss">
+    .button {
+        border: none;
+        min-width: 130px;
+    }
     .mainNavigation {
         position: relative;
         background: #2B2B2B;
@@ -36,13 +72,14 @@
         z-index: 1;
 
         ul li {
+            height: 54px;
+            text-align: center;
             cursor: pointer;
             display: inline-block;
             color: #C6C6C6;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-family: "brandon", Helvetica, Arial, sans-serif;
             text-transform: uppercase;
-            padding: 2.5rem 3.5rem;
             transition: all .3s;
 
             &:hover {

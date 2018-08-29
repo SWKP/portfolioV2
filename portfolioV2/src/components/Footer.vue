@@ -28,6 +28,7 @@
 
 <style lang="scss">
     .footer {
+        margin-top: 2rem;
         height: 80rem;
         background: #2B2B2B;
         display: flex;
@@ -49,7 +50,8 @@
         }
     }
     .otherSites {
-        width: 400px;
+        clip-path: polygon(85% 0, 100% 75%, 85% 100%, 15% 100%, 0 75%, 15% 0);
+        width: 500px;
         height: 10px;
         margin: 0 auto 5rem;
         background: #424242;

@@ -1,4 +1,5 @@
 <template>
+    <div>
     <ul>
         <li v-for="website in websites">
             <div class="project">
@@ -26,6 +27,10 @@
             </div>
         </li>
     </ul>
+    <div class="loadMore">
+            <h4>Load More Websites</h4>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -239,5 +244,23 @@
               font-weight: 100;
           }
       }
+    }
+
+    .loadMore {
+        position:relative;
+        z-index: 0;
+        text-align: center;
+        margin: 2rem 0 20rem 0;
+        background-color: #BCBCBC;
+        padding: 5rem 0 8rem 0;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+
+        & h4 {
+            color: #565656;
+            font-family: "adam", Helvetica, Arial, sans-serif;
+            letter-spacing: 2rem;
+        }
+        
     }
 </style>

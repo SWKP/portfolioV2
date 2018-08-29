@@ -14,10 +14,6 @@
       <app-website></app-website>
       <app-code></app-code>
       -->
-
-        <div class="loadMore">
-            <h4>Load More Websites</h4>
-        </div>
       </div>
     </div>
   </div>
@@ -95,24 +91,6 @@ export default {
         }
     }
 
-    .loadMore {
-        position:relative;
-        z-index: 0;
-        text-align: center;
-        margin: 2rem 0 20rem 0;
-        background-color: #BCBCBC;
-        padding: 5rem 0 8rem 0;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
-        clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
-
-        & h4 {
-            color: #565656;
-            font-family: "adam", Helvetica, Arial, sans-serif;
-            letter-spacing: 2rem;
-        }
-        
-    }
-
     .fade-enter-active, .fade-leave-active {
             transform: rotateX(0deg);
   transition: all 0.25s cubic-bezier(0.42, 0, 0.58, 1);;
@@ -122,5 +100,96 @@ export default {
   filter: blur(1rem);
   opacity: 0;
   transform: rotateX(90deg);
+}
+
+$anim-text-offset: 1em;
+
+.button{
+    font-family: "brandon", Helvetica, Arial, sans-serif;
+  touch-callout: none;
+  user-select: none;
+  display: inline-block;
+  border: .2em solid;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.6;
+  color: #FFF;
+  &__text{
+    display: block;
+    padding:1em 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:before{
+      content: attr(title);
+    }
+    &--bis{
+      display: block;
+      position: absolute;
+      top: 0; left:0; right: 0; bottom: 0;
+      transform: translateX(-1 * $anim-text-offset);
+      opacity: 0;
+    }
+  }
+  &__mask{
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: white;
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.3s;
+  }  
+}
+
+.button:hover{
+  opacity: 1;
+  .button__text{
+    animation: fx-text .3s ease-out;
+    &--bis{
+      animation: fx-text-bis .3s ease-out;
+    }
+  }    
+  .button__mask{
+    animation: fx-mask .3s ease-out;
+  }    
+}
+
+.button:active{
+  opacity: 1;
+  background: white;
+  color: inherit;
+}
+
+
+@keyframes fx-mask {
+  0%{
+    transform: translateX(-100%) rotate(45deg);
+    filter: blur(5px);
+  }
+  100%{
+    transform: translateX(100%) rotate(45deg);
+    filter: blur(5px);
+  }
+}
+
+@keyframes fx-text {
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateX($anim-text-offset);
+    opacity: 0;
+  }
+}
+@keyframes fx-text-bis {
+  0%{
+    transform: translateX(-1 * $anim-text-offset);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

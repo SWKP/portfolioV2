@@ -125,6 +125,8 @@
     position: relative;
 }
 .gallery {
+    position: relative;
+    left: 12rem;
     grid-gap: 2rem;
     margin: 10rem 0;
     transform: rotate(-45deg);
