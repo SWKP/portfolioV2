@@ -5,43 +5,51 @@
             <button type="submit"><i class="fa fa-search"></i></button>
             </div>
         <ul>
-            <li v-on:click="changeComponent('app-website')">
-                <router-link to="/testing">
-                <div class="button">
-                    <span class="button__mask"></span>
-                    <span class="button__text">Websites</span>
-                    <span class="button__text button__text--bis">Websites</span>
-                </div>
-                </router-link>
-            </li>
-            <li v-on:click="changeComponent('app-code')">
-                <div class="button">
-                    <span class="button__mask"></span>
-                    <span class="button__text">Code</span>
-                    <span class="button__text button__text--bis">Code</span>
-                </div>
-            </li>
-            <li v-on:click="changeComponent('app-threeD')">
-                <div class="button">
-                    <span class="button__mask"></span>
-                    <span class="button__text">3D</span>
-                    <span class="button__text button__text--bis">3D</span>
-                </div>
-            </li>
-            <li v-on:click="changeComponent('app-about')">
-                <div class="button">
-                    <span class="button__mask"></span>
-                    <span class="button__text">About</span>
-                    <span class="button__text button__text--bis">About</span>
-                </div>
-            </li>
-            <li v-on:click="changeComponent('app-contact')">
-                <div class="button">
-                    <span class="button__mask"></span>
-                    <span class="button__text">Contact</span>
-                    <span class="button__text button__text--bis">Contact</span>
-                </div>
-            </li>
+            <router-link to="/">
+                <li>
+                    <div class="button">
+                        <span class="button__mask"></span>
+                        <span class="button__text">Websites</span>
+                        <span class="button__text button__text--bis">Websites</span>
+                    </div>
+                </li>
+            </router-link>
+            <router-link to="/code">
+                <li>
+                    <div class="button">
+                        <span class="button__mask"></span>
+                        <span class="button__text">Code</span>
+                        <span class="button__text button__text--bis">Code</span>
+                    </div>
+                </li>
+            </router-link>
+            <router-link to="/3d">
+                <li>
+                    <div class="button">
+                        <span class="button__mask"></span>
+                        <span class="button__text">3D</span>
+                        <span class="button__text button__text--bis">3D</span>
+                    </div>
+                </li>
+            </router-link>
+            <router-link to="/about">
+                <li>
+                    <div class="button">
+                        <span class="button__mask"></span>
+                        <span class="button__text">About</span>
+                        <span class="button__text button__text--bis">About</span>
+                    </div>
+                </li>
+            </router-link>
+            <router-link to="/contact">
+                <li>
+                    <div class="button">
+                        <span class="button__mask"></span>
+                        <span class="button__text">Contact</span>
+                        <span class="button__text button__text--bis">Contact</span>
+                    </div>
+                </li>
+            </router-link>
         </ul>
     </div>
 </template>

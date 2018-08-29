@@ -1,12 +1,25 @@
 <template>
-  <div id="app">
-    <router-view/>
+    <div class="container">
+
+      <app-header></app-header>
+      <app-mainBody></app-mainBody>
+      <app-footer></app-footer>
+
   </div>
 </template>
 
 <script>
+import Header from './components/Header';
+import MainBody from './components/MainBody';
+import Footer from './components/Footer';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    appHeader: Header,
+    appMainBody: MainBody,
+    appFooter: Footer
+  }
 }
 </script>
 
@@ -57,6 +70,11 @@ p {font-size: 1.7rem;}
 :root {
   //colors
   --main-highlight-color: #E91E63;
+}
+
+.container {
+  background: #3a3a3a;
+  overflow: hidden;
 }
 
 </style>

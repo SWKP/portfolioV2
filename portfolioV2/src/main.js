@@ -2,9 +2,28 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import VueRouter from 'vue-router';
 
-Vue.use(router);
+import Website from './components/Website';
+import Code from './components/Code';
+import ThreeD from './components/ThreeD';
+import About from "./components/About";
+import Contact from './components/Contact';
+
+
+Vue.use(VueRouter);
+
+const routes = [
+  { path: '/', component: Website },
+  { path: '/code', component: Code },
+  { path: '/3d', component: ThreeD },
+  { path: '/about', component: About },
+  { path: '/contact', component: Contact }
+];
+
+const router = new VueRouter({
+  routes
+});
 
 Vue.config.productionTip = false
 

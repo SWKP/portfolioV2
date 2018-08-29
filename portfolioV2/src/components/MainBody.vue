@@ -8,7 +8,8 @@
       <div class="mainBody__projects">
 
       <transition name="fade" mode="out-in">
-      <component v-bind:is="activeComponent"></component>   
+        <router-view></router-view>
+      <!--<component v-bind:is="activeComponent"></component>-->
       </transition>   
       <!--
       <app-website></app-website>
@@ -22,23 +23,27 @@
 <script>
 import { bus } from '../main.js';
 
+
 import Navigation from './Navigation';
+/*
 import Website from './Website';
 import Code from './Code';
 import ThreeD from './ThreeD';
 import About from "./About";
 import Contact from './Contact';
+*/
 
     
 export default {
     components: {
-        appNavigation: Navigation,
+        appNavigation: Navigation
+        /*
         appWebsite: Website,
         appCode: Code,
         appThreeD: ThreeD,
         appAbout: About,
         appContact: Contact
-        
+        */
     },
     data() {
         return {

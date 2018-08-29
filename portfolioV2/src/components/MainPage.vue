@@ -1,12 +1,14 @@
+<!--CURRENTLY MERGED WITH App.vue
+
 <template>
-<div class="container">
+  <div class="container">
 
-  <app-header></app-header>
-  <app-mainBody></app-mainBody>
+    <app-header></app-header>
+    <app-mainBody></app-mainBody>
 
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 
-</div>
+  </div>
 </template>
 
 <script>
@@ -35,3 +37,5 @@ export default {
   overflow: hidden;
 }
 </style>
+
+-->
