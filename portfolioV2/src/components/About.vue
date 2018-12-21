@@ -2,8 +2,8 @@
     <div class="code">
         <div class="code__about">
             <div class="about__intro">
-              <h1>“Our greatest glory is not in never failing, but in rising up every time we fail.” <span>-Calvin Coolidge</span></h1>
-              <p>If you've managed to manually type in my last name into the url field than <strong style="color:orange;">congratulations 👍</strong> as you have overcome the impossible! <br><br> My name is Karol and I'm currently residing in Napa, CA. First and foremost I'm a web designer. While I find it enjoyable I see programming as a means to an end, with out it you're left with a lifeless project. At the moment the <strong style="color: orange;">top 6 web technologies</strong> I find myself using the most often would have to be Javascript, SASS, Bootstrap, Wordpress, Vue.js and of course Html. <br> If you want to know more about me or my projects feel free to <strong style="color: orange;">contact</strong> me.</p>
+              <h1>Art & design has always fascinated me, no matter what I did in life I find myself <span>continually being drawn back to it.</span></h1>
+              <p>This website is a means for me to catalog my designs and any other skills/technologies I feel are complementary to it. <br><br> The <strong style="color: orange;">top 5 web technologies</strong> I find myself using the most often are Javascript, SASS, Bootstrap, Wordpress and Vue.js. <br>I'm currently taking in web development work. If you need help turning your ideas into reality <strong style="color: orange;">contact</strong> me.</p>
             </div>
             <div class="about__skills">
                 <div class="description">
