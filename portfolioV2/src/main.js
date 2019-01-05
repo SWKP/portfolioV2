@@ -13,26 +13,48 @@ import Contact from './components/Contact';
 
 Vue.use(VueRouter);
 
-const routes = [
-  { path: '/', component: Website },
-  { path: '/code', component: Code },
-  { path: '/3d', component: ThreeD },
-  { path: '/about', component: About },
-  { path: '/contact', component: Contact }
+const routes = [{
+    path: '/',
+    component: Website
+  },
+  {
+    path: '/code',
+    component: Code
+  },
+  {
+    path: '/3d',
+    component: ThreeD
+  },
+  {
+    path: '/about',
+    component: About
+  },
+  {
+    path: '/contact',
+    component: Contact
+  }
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 });
 
 Vue.config.productionTip = false
 
 export const bus = new Vue();
 
+// Filters
+Vue.filter('to-uppercase', function (value) {
+  return value.toUpperCase();
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })

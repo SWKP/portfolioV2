@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="website in websites">
+      <li v-for="website in filteredSites">
         <div class="project">
           <div class="project__info">
             <div class="project__date">
@@ -35,6 +35,9 @@
         </div>
       </li>
     </ul>
+    <div class="noResults">
+      <h1 v-if="!filteredSites.length">No results.</h1>
+    </div>
     <div class="loadMore">
       <h4>Load More Websites</h4>
     </div>
@@ -56,14 +59,17 @@
 </template>
 
 <script>
+import { bus } from "../main.js";
+
 export default {
   data() {
     return {
+      search: "",
       websites: [
         {
           number: "1",
           date: "Sep 2017",
-          name: "Napa Valley Film Festival",
+          name: "napa valley film festival",
           url: "nvff.org",
           image:
             "http://karolponiatowski.com/projects/images/portfolio/nvff-project.png",
@@ -79,7 +85,7 @@ export default {
         {
           number: "2",
           date: "Feb 2018",
-          name: "Dixicoin",
+          name: "dixicoin",
           url: "dixicoin.net",
           image:
             "http://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
@@ -90,7 +96,7 @@ export default {
         {
           number: "3",
           date: "May 2018",
-          name: "Petaluma Museum",
+          name: "petaluma museum",
           url: "petalumamuseum.com",
           image:
             "http://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png",
@@ -105,7 +111,7 @@ export default {
         {
           number: "4",
           date: "Mar 2018",
-          name: "RoundOne",
+          name: "roundone",
           url: "roundone.win",
           image:
             "http://karolponiatowski.com/projects/images/portfolio/roundOne-project.png",
@@ -168,6 +174,11 @@ export default {
       ]
     };
   },
+  created() {
+    bus.$on("searchSubmitted", data => {
+      this.search = data;
+    });
+  },
   methods: {
     topScroll() {
       window.scrollBy({
@@ -184,6 +195,13 @@ export default {
         top: 1500, // could be negative value
         left: 0,
         behavior: "smooth"
+      });
+    }
+  },
+  computed: {
+    filteredSites: function() {
+      return this.websites.filter(website => {
+        return website.name.match(this.search);
       });
     }
   }
@@ -393,9 +411,23 @@ MIGHT NOT NEED
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.6s;
+  transition: all 0.35s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.noResults {
+  margin-top: 18px;
+  background-color: #2b2b2b;
+
+  h1 {
+    padding: 4rem 10rem 5rem;
+    text-align: center;
+    font-family: "adam", Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-weight: 100;
+    font-size: 3rem;
+    letter-spacing: 2rem;
+  }
 }
 </style>
