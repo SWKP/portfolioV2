@@ -26,7 +26,7 @@
           </div>
           <!-- On click multiple things happen -->
           <div
-            v-on:click="modalUrl=website.full, modal = true, topScroll()"
+            v-on:click="modalUrl=website.full, modal = true, toggleBodyClass('addClass', 'noScroll')"
             class="project__image"
             :style="{ backgroundImage: 'url(' + website.image + ')' }"
           >
@@ -46,7 +46,7 @@
       <div
         class="modal"
         v-show="modal"
-        v-on:click="botScroll(), modalUrl=' ', modal = false"
+        v-on:click=" modalUrl=' ', modal = false, toggleBodyClass('removeClass', 'noScroll')"
         transition="fadeIn"
       >
         <div class="modalInner">
@@ -180,23 +180,23 @@ export default {
     });
   },
   methods: {
-    topScroll() {
-      window.scrollBy({
-        top: -4000, // could be negative value
-        left: 0,
-        behavior: "smooth"
-      });
-    },
-    botScroll() {
-      document.querySelector(".mainBody__inner").scrollIntoView({
-        behavior: "smooth"
-      });
-      window.scrollBy({
-        top: 1500, // could be negative value
-        left: 0,
-        behavior: "smooth"
-      });
+    toggleBodyClass(addRemoveClass, className) {
+      const el = document.body;
+
+      if (addRemoveClass === "addClass") {
+        el.classList.add(className);
+      } else {
+        el.classList.remove(className);
+      }
     }
+  },
+
+  // Just in case you like to do it when page or component is mounted or destroyed.
+  mounted() {
+    this.toggleBodyClass("addClass", "yourClassName");
+  },
+  destroyed() {
+    this.toggleBodyClass("removeClass", "yourClassName");
   },
   computed: {
     filteredSites: function() {
@@ -379,6 +379,10 @@ ul {
     font-family: "adam", Helvetica, Arial, sans-serif;
     letter-spacing: 2rem;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .modal {
@@ -401,11 +405,15 @@ MIGHT NOT NEED
 }
 */
 .modalInner {
+  background-color: #1a1e1ecc;
+  position: fixed;
+  overflow-y: scroll !important;
   width: 100vw;
   height: 100vh;
+  text-align: center;
 
   img {
-    width: 100vw;
+    width: 75vw;
   }
 }
 
@@ -429,5 +437,9 @@ MIGHT NOT NEED
     font-size: 3rem;
     letter-spacing: 2rem;
   }
+}
+
+.noScroll {
+  overflow-y: hidden !important;
 }
 </style>
