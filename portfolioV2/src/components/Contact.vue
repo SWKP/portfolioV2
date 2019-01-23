@@ -1,10 +1,11 @@
 <template>
   <div class="contact-form">
     <h1 class="contact-form_title">Shoot me a message</h1>
-
-    <div v-if="isSending" class="loading">Sending...</div>
-    <!-- action="https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec" -->
-    <form v-on:submit="onSubmitNew" v-bind:action="formAction()" id="gform" method="POST">
+    <!-- 
+      v-on:submit="onSubmitNew"
+      v-bind:action="formAction()"
+    action="https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec"-->
+    <form v-if="!contact.thanks" @submit.prevent="postNow" id="gform" method="POST">
       <h2>1</h2>
       <input
         required
@@ -42,6 +43,9 @@
         </span>
       </div>
     </form>
+    <transition name="fade" mode="out-in">
+      <div v-if="contact.thanks" class="sent">Message Sent!</div>
+    </transition>
   </div>
 </template>
 <script>
@@ -54,31 +58,44 @@ export default {
         name: "",
         email: "",
         message: "",
-        other: ""
+        other: "",
+        thanks: false
       },
 
       isSending: false
     };
   },
   methods: {
+    postNow: function() {
+      if (this.contact.other == "") {
+        axios
+          .post(
+            "https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec",
+            `
+            <h2>Name: ${this.contact.name}<h2>
+            <h2>Email: ${this.contact.email}<h2>
+            <h2>Message: ${this.contact.message}<h2>
+            `,
+            {
+              headers: {
+                "Content-type": "application/x-www-form-urlencoded"
+              }
+            }
+          )
+          .then(
+            (this.contact.thanks = true),
+            (this.contact.name = ""),
+            (this.contact.email = ""),
+            (this.contact.message = "")
+          )
+          .then(r => console.log("r: ", JSON.stringify(r, null, 2)));
+      }
+    },
     /**
      * Clear the form
      */
-    clearForm() {
-      for (let field in this.contact) {
-        this.contact[field] = "";
-      }
-    },
-    formAction() {
-      if (this.contact.other == "") {
-        return "https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec";
-      }
-      return "wtf";
-    },
-    onSubmitNew() {
-      setTimeout(function() {
-        window.location.href = "http://localhost:8080/contact";
-      }, 500);
+    clearForm: function() {
+      console.log("Form Clear");
     }
   }
 };
@@ -104,7 +121,7 @@ export default {
 }
 
 .contact-form_title {
-  color: #564e4e;
+  color: #bfc239;
   font-family: "adam", Helvetica, Arial, sans-serif;
   font-size: 3rem;
   font-weight: 200;
@@ -122,8 +139,13 @@ export default {
   outline: none;
   background: #2b2b2b;
   border: none;
-  width: 50%;
+  width: 90%;
   transition: background-color 200ms linear;
+}
+
+.contact-form input[type="email"] {
+  top: -3px;
+  position: relative;
 }
 
 .contact-form textarea {
@@ -151,21 +173,51 @@ textarea:focus {
 .contact-form textarea {
   font-size: 15px;
 }
+.contact-form input[name="other"] {
+  display: none;
+}
 
 form h2 {
   font-family: "brandon", Helvetica, Arial, sans-serif;
-  color: #554e4e;
+  background: #a32a52;
+  color: #3a3a3a;
   display: inline-block;
   width: 9%;
   text-align: center;
   font-size: 3.5rem;
   position: relative;
-  top: 6px;
+  top: 7px;
   right: 5px;
 
-  &:nth-of-type(3) {
-    top: -64px;
+  &:nth-of-type(2) {
+    top: 4px;
   }
+
+  &:nth-of-type(3) {
+    top: -96px;
+  }
+}
+.sent {
+  font-family: "adam", Helvetica, Arial, sans-serif;
+  width: 100%;
+  text-align: center;
+  background: #bfc239;
+  padding: 10rem;
+  font-size: 2.5rem;
+  color: #3a3a3a;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transform: rotateX(0deg);
+  transition: all 0.25s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: all 0.5s ease-out;
 }
 
 /*Misc fixes*/
