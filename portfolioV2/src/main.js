@@ -2,14 +2,17 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+//Import vue resource for ajax calls
+//import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
+
+//Vue.use(VueResource);
 
 import Website from './components/Website';
 import Code from './components/Code';
 import ThreeD from './components/ThreeD';
 import About from "./components/About";
 import Contact from './components/Contact';
-
 
 Vue.use(VueRouter);
 

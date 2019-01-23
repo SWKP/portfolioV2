@@ -10,10 +10,7 @@
 </template>
 
 <script>
-    
-    export default {
-
-    }
+export default {};
 </script>
 
 <style lang="scss">
@@ -54,7 +51,7 @@
 
     span {
       font-family: "adam", Helvetica, Arial, sans-serif;
-      color: #CDDC39;
+      color: #cddc39;
       position: absolute;
       left: 30%;
       top: 300px;
@@ -65,25 +62,25 @@
       background-color: #2b2b2b;
 
       &::before {
-        content: '';
-        height: 47rem;
+        content: "";
+        height: 34rem;
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
         border-right: 3px solid #2b2b2b;
         position: absolute;
-        left: -50rem;
-        width: 47rem;
+        left: -40rem;
+        width: 34rem;
         bottom: 0rem;
         z-index: -1;
       }
 
       &::after {
-        content: '';
-        width: 0; 
-        height: 0; 
+        content: "";
+        width: 0;
+        height: 0;
         border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent; 
-        border-right:10px solid #2b2b2b; 
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #2b2b2b;
         position: absolute;
         left: 0px;
         bottom: -9px;
@@ -91,6 +88,4 @@
     }
   }
 }
-
-
 </style>

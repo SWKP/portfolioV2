@@ -23,6 +23,7 @@
 import { bus } from "../main.js";
 
 import Navigation from "./Navigation";
+
 /*
 import Website from './Website';
 import Code from './Code';
@@ -101,6 +102,7 @@ export default {
   }
 
   &__projects {
+    margin: 10rem 0px;
   }
 }
 

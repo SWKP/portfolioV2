@@ -3,9 +3,8 @@
     <h1 class="contact-form_title">Shoot me a message</h1>
 
     <div v-if="isSending" class="loading">Sending...</div>
-    <!-- action="https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec" -->
-    <form v-on:submit="onSubmitNew" v-bind:action="formAction()" id="gform" method="POST">
-      <h2>1</h2>
+
+    <form class="form" @submit="onSubmit">
       <input
         required
         name="name"
@@ -14,8 +13,6 @@
         type="text"
         autocomplete="off"
       >
-      <br>
-      <h2>2</h2>
       <input
         required
         name="email"
@@ -24,28 +21,17 @@
         type="email"
         autocomplete="off"
       >
-      <br>
-      <h2>3</h2>
       <textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
-      <br>
-      <input v-model="contact.other" type="text" name="other" autocomplete="off">
-      {{ contact.other }}
-      <!--<input type="submit" value="Submit">-->
-      <div class="button contact-form">
-        <span class="button__mask"></span>
-        <span class="button__text">
-          <input
-            class="btn btn-outline-primary btn-rounded waves-effect wow fadeInUp"
-            type="submit"
-            value="Send"
-          >
-        </span>
-      </div>
     </form>
+    <div class="button">
+      <span class="button__mask"></span>
+      <span class="button__text">Send</span>
+      <span class="button__text button__text--bis">Send</span>
+    </div>
   </div>
 </template>
+
 <script>
-import axios from "axios";
 export default {
   components: {},
   data() {
@@ -53,8 +39,7 @@ export default {
       contact: {
         name: "",
         email: "",
-        message: "",
-        other: ""
+        message: ""
       },
 
       isSending: false
@@ -64,21 +49,42 @@ export default {
     /**
      * Clear the form
      */
+
     clearForm() {
       for (let field in this.contact) {
         this.contact[field] = "";
       }
     },
-    formAction() {
-      if (this.contact.other == "") {
-        return "https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec";
-      }
-      return "wtf";
-    },
-    onSubmitNew() {
-      setTimeout(function() {
-        window.location.href = "http://localhost:8080/contact";
-      }, 500);
+
+    /**
+     * Handler for submit
+     */
+
+    onSubmit(evt) {
+      console.log("Submitted");
+      evt.preventDefault();
+
+      this.isSending = true;
+
+      setTimeout(() => {
+        // Build for data
+        let form = new FormData();
+        for (let field in this.contact) {
+          form.append(field, this.contact[field]);
+        }
+
+        // Send form to server
+        this.$http
+          .post("/app.php", form)
+          .then(response => {
+            console.log(response);
+            this.clearForm();
+            this.isSending = false;
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }, 1000);
     }
   }
 };
@@ -87,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 .contact-form {
   font-family: 16px;
-  margin: 0rem auto;
+  margin: 15rem auto;
   max-width: 600px;
   width: 100%;
 }
@@ -122,13 +128,11 @@ export default {
   outline: none;
   background: #2b2b2b;
   border: none;
-  width: 50%;
   transition: background-color 200ms linear;
 }
 
 .contact-form textarea {
   resize: none;
-  width: 90%;
 }
 
 .contact-form input:focus,
@@ -138,6 +142,7 @@ textarea:focus {
 
 .contact-form .button {
   background: var(--main-highlight-color);
+  border: solid 1px #da552f;
   color: white;
   cursor: pointer;
   text-align: center;
@@ -146,41 +151,16 @@ textarea:focus {
   letter-spacing: 1rem;
 }
 
+/*
+.contact-form .button:hover {
+	background: #ea532a;
+	border: solid 1px #ea532a;
+}
+*/
+
 .contact-form input[type="email"],
 .contact-form input[type="text"],
 .contact-form textarea {
   font-size: 15px;
-}
-
-form h2 {
-  font-family: "brandon", Helvetica, Arial, sans-serif;
-  color: #554e4e;
-  display: inline-block;
-  width: 9%;
-  text-align: center;
-  font-size: 3.5rem;
-  position: relative;
-  top: 6px;
-  right: 5px;
-
-  &:nth-of-type(3) {
-    top: -64px;
-  }
-}
-
-/*Misc fixes*/
-.contact-form span.button__text {
-  padding: 0rem;
-}
-input[type="submit"] {
-  background: transparent;
-  border: none;
-  width: 100%;
-  font-family: "brandon", Helvetica, Arial, sans-serif;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  color: white;
-  padding: 2rem;
-  cursor: pointer;
 }
 </style>

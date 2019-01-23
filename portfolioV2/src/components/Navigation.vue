@@ -151,6 +151,10 @@ export default {
   }
 }
 .router-link-exact-active {
-  background: #bfc239;
+  background-image: linear-gradient(#86867500,#86867500 62%,#bfc239 61%);
+
+  span.button__text {
+    color: #bfc239;
+}
 }
 </style>
