@@ -85,22 +85,34 @@ export default {
 </script>
 
 <style lang="scss">
-.button {
-  border: none;
-  min-width: 130px;
-}
-
 .fa-search:hover:before {
   color: #cddc39 !important;
   cursor: pointer;
 }
 
 .mainNavigation {
+  margin-top: 270px;
   position: relative;
   background: #2b2b2b;
   max-width: 70rem;
   align-self: flex-end;
   z-index: 1;
+
+  .button {
+    width: 13rem;
+  }
+
+  @media (max-width: 660px) {
+    .button {
+      width: 30rem;
+    }
+    ul {
+      width: 290px;
+      a {
+        display: block;
+      }
+    }
+  }
 
   ul li {
     height: 54px;
@@ -151,10 +163,18 @@ export default {
   }
 }
 .router-link-exact-active {
-  background-image: linear-gradient(#86867500,#86867500 62%,#bfc239 61%);
+  background-image: linear-gradient(#86867500, #86867500 62%, #bfc239 61%);
+
+  @media (max-width: 670px) {
+    background-image: linear-gradient(#86867500, #86867500 85%, #bfc239 60%);
+  }
 
   span.button__text {
     color: #bfc239;
-}
+
+    @media (max-width: 660px) {
+      width: 290px;
+    }
+  }
 }
 </style>

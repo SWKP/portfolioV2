@@ -216,6 +216,7 @@ ul {
   list-style-type: none;
 }
 .project {
+  box-shadow: 0px 0px 53px #00000075;
   margin-top: 2rem;
   width: 100%;
   height: 25rem;
@@ -229,11 +230,15 @@ ul {
     clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
     z-index: 10;
     display: flex;
+    min-width: 500px;
+    @media (max-width: 400px) {
+      min-width: 360px;
+    }
   }
 
   &__date {
     border-right: 4px solid #3a3a3a;
-    width: 20%;
+    width: 26%;
 
     h4 {
       position: relative;
@@ -368,7 +373,7 @@ ul {
   position: relative;
   z-index: 0;
   text-align: center;
-  margin: 2rem 0 20rem 0;
+  margin: 1vw 0 10vw 0;
   background-color: #bcbcbc;
   padding: 5rem 0 8rem 0;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
@@ -377,7 +382,7 @@ ul {
   & h4 {
     color: #565656;
     font-family: "adam", Helvetica, Arial, sans-serif;
-    letter-spacing: 2rem;
+    letter-spacing: 1vw;
   }
 
   &:hover {

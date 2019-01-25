@@ -79,22 +79,36 @@ export default {
 
   .projectsTitle {
     display: inline-block;
-    width: 195%;
-    position: relative;
-    right: 150%;
+    position: absolute;
+    width: 45vw;
+    left: 0px;
     background: #bcbcbc;
     margin: 10rem 0;
-    -webkit-clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
 
+    @media (max-width: 1155px) {
+    }
+
     h1 {
-      padding: 4rem 10rem 5rem;
+      padding: 4rem 5vw 5rem 0;
       text-align: right;
       font-family: "adam", Helvetica, Arial, sans-serif;
       color: #777777;
       font-weight: 100;
       font-size: 3rem;
       letter-spacing: 2rem;
+
+      @media (max-width: 1155px) {
+        font-size: 2.8rem;
+        letter-spacing: 1rem;
+      }
+      @media (max-width: 755px) {
+        padding: 4rem 2rem 4rem 16px;
+        font-size: 2.5rem;
+        letter-spacing: 0.5rem;
+        text-align: left;
+      }
     }
   }
   &__inner {
@@ -125,7 +139,7 @@ $anim-text-offset: 1em;
   font-family: "brandon", Helvetica, Arial, sans-serif;
   user-select: none;
   display: inline-block;
-  border: 0.2em solid;
+
   position: relative;
   cursor: pointer;
   overflow: hidden;

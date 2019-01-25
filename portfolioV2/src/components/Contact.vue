@@ -19,6 +19,16 @@
       <h2>2</h2>
       <input
         required
+        name="title"
+        v-model="contact.title"
+        placeholder="Title"
+        type="text"
+        autocomplete="off"
+      >
+      <br>
+      <h2>3</h2>
+      <input
+        required
         name="email"
         v-model="contact.email"
         placeholder="E-mail"
@@ -26,7 +36,7 @@
         autocomplete="off"
       >
       <br>
-      <h2>3</h2>
+      <h2>4</h2>
       <textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
       <br>
       <input v-model="contact.other" type="text" name="other" autocomplete="off">
@@ -56,6 +66,7 @@ export default {
     return {
       contact: {
         name: "",
+        title: "",
         email: "",
         message: "",
         other: "",
@@ -73,6 +84,7 @@ export default {
             "https://script.google.com/macros/s/AKfycbzEoV3NDqpFHhr5VwgEHi1boDzcCpjE2fCBdFy6yxXsFkMB4lo/exec",
             `
             <h2>Name: ${this.contact.name}<h2>
+            <h2>Name: ${this.contact.title}<h2>
             <h2>Email: ${this.contact.email}<h2>
             <h2>Message: ${this.contact.message}<h2>
             `,
@@ -85,6 +97,7 @@ export default {
           .then(
             (this.contact.thanks = true),
             (this.contact.name = ""),
+            (this.contact.title = ""),
             (this.contact.email = ""),
             (this.contact.message = "")
           )
@@ -103,10 +116,12 @@ export default {
 
 <style lang="scss" scoped>
 .contact-form {
+  position: relative;
   font-family: 16px;
   margin: 0rem auto;
   max-width: 600px;
   width: 100%;
+  z-index: 1;
 }
 
 .contact-form .separator {
@@ -121,13 +136,16 @@ export default {
 }
 
 .contact-form_title {
+  background: #2b2b2b;
+  padding: 4rem 2.5rem 8rem;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
   color: #bfc239;
   font-family: "adam", Helvetica, Arial, sans-serif;
   font-size: 3rem;
   font-weight: 200;
   text-align: center;
   letter-spacing: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .contact-form input[type="email"],
@@ -190,10 +208,13 @@ form h2 {
   right: 5px;
 
   &:nth-of-type(2) {
+    top: 6px;
+  }
+  &:nth-of-type(3) {
     top: 4px;
   }
 
-  &:nth-of-type(3) {
+  &:nth-of-type(4) {
     top: -96px;
   }
 }

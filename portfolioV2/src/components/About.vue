@@ -57,13 +57,21 @@ export default {
     background: #2b2b2b;
     margin-right: -20rem;
     clip-path: polygon(0 0, 100% 0%, 65% 100%, 0% 100%);
+
+    @media (max-width: 740px) {
+      clip-path: none;
+    }
   }
 
   .about {
     &__intro {
       flex: 1;
-      padding-right: 20%;
+      padding-right: 22%;
       border-bottom: 2px solid #383838;
+
+      @media (max-width: 740px) {
+        padding-right: 35%;
+      }
 
       h1 {
         font-family: "adam", Helvetica, Arial, sans-serif;
@@ -134,6 +142,9 @@ export default {
     max-width: 400px;
     z-index: -1;
 
+    @media (max-width: 740px) {
+      display: none;
+    }
     img {
       height: 100%;
       position: absolute;

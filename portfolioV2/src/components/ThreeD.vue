@@ -151,27 +151,32 @@ export default {
 <style lang="scss" scoped>
 .grid-container {
   position: relative;
+  max-width: 1400px;
+  margin: 25rem 0 35rem;
 }
 .gallery {
   position: relative;
-  left: 12rem;
+  left: 6rem;
   grid-gap: 2rem;
   margin: 10rem 0;
   transform: rotate(-45deg);
   margin: 10rem auto;
   display: grid;
-  height: 900px;
-  width: 900px;
+  max-width: 70rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: ". Four Four Four . . ." ". Four Four Four Two Two ." "Five Five One One Two Two ." "Five Five One One Three . ." ". . One One Three . Eight" "Seven . Six Six Three . ." ". . Six Six . . ." ". . . . . . .";
 
   h1 {
     font-family: "adam", Helvetica, Arial, sans-serif;
-    font-weight: 900;
-    font-size: 5rem;
+    font-weight: 200;
+    font-size: 8rem;
     color: #ffffff;
     text-shadow: 5px 5px 9px #2b2b2bba;
+
+    @media (max-width: 550px) {
+      font-size: 4rem;
+    }
   }
 }
 .modal {
@@ -327,6 +332,7 @@ export default {
 .Six,
 .Seven,
 .Eight {
+  box-shadow: 0px 0px 83px #00000075;
   img {
     transform: scale(4);
     filter: blur(1px);
