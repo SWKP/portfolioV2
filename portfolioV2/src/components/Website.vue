@@ -74,7 +74,7 @@ export default {
           image:
             "http://karolponiatowski.com/projects/images/portfolio/nvff-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots/screencapture-nvff-org-2018-05-30-01_35_05.png",
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-nvff-org-min.png",
           details: [
             { feature: "Wordpress" },
             { feature: "High traffic Ecommerce" },
@@ -90,7 +90,7 @@ export default {
           image:
             "http://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots/screencapture-dixicoin-net-2018-05-30-01_47_37.png",
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
           details: [{ feature: "Bootstrap" }, { feature: "Custom SVG" }]
         },
         {
@@ -101,7 +101,7 @@ export default {
           image:
             "http://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots/screencapture-petalumamuseum-2018-05-30-01_40_48.png",
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-petalumamuseum-min.png",
           details: [
             { feature: "Wordpress" },
             { feature: "Agile development" },
@@ -116,7 +116,37 @@ export default {
           image:
             "http://karolponiatowski.com/projects/images/portfolio/roundOne-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots/screencapture-roundone-win-2018-05-30-01_43_35.png",
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-roundone-win-min.png",
+          details: [
+            { feature: "Bootstrap" },
+            { feature: "Custom SVG" },
+            { feature: "Brand development" }
+          ]
+        },
+        {
+          number: "5",
+          date: "June 2017",
+          name: "Feast it Forward",
+          url: "feastitforward.com",
+          image:
+            "http://karolponiatowski.com/projects/images/portfolio/feast-project.png",
+          full:
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-feastitforward-min.png",
+          details: [
+            { feature: "Wordpress" },
+            { feature: "PHP" },
+            { feature: "Graphic Design" }
+          ]
+        },
+        {
+          number: "6",
+          date: "January 2017",
+          name: "Jeremy Jack Inc.",
+          url: "jeremyjackinc.com",
+          image:
+            "http://karolponiatowski.com/projects/images/portfolio/jeremyjack-project.png",
+          full:
+            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-jeremyjackinc-min.png",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -216,7 +246,7 @@ ul {
   list-style-type: none;
 }
 .project {
-  box-shadow: 0px 0px 53px #00000075;
+  box-shadow: 0px 0px 22px #00000075;
   margin-top: 2rem;
   width: 100%;
   height: 25rem;
@@ -340,6 +370,7 @@ ul {
     flex: 2;
     z-index: 9;
     filter: blur(2px);
+    transition: all 0.3s;
 
     &::before {
       content: "";
@@ -356,6 +387,7 @@ ul {
     }
     &:hover {
       filter: blur(0px);
+      transform: scale(1.1);
     }
 
     h3 {
