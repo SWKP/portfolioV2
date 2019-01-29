@@ -26,15 +26,15 @@ export default {
 /*Load custom fonts */
 @font-face {
   font-family: "adam";
-  src: url("fonts/ADAM.CGPRO.woff") format("woff"),
-    url("fonts/ADAM.CGPRO.woff2") format("woff"),
-    url("fonts/ADAM.CGPRO.otf") format("otf");
+  src: url("assets/fonts/ADAM.CGPRO.woff") format("woff"),
+    url("assets/fonts/ADAM.CGPRO.woff2") format("woff"),
+    url("assets/fonts/ADAM.CGPRO.otf") format("otf");
 }
 
 @font-face {
   font-family: "brandon";
-  src: url("fonts/Brandon_bld.woff") format("woff"),
-    url("fonts/Brandon_bld.otf") format("otf");
+  src: url("assets/fonts/Brandon_bld.woff") format("woff"),
+    url("assets/fonts/Brandon_bld.otf") format("otf");
 }
 
 /*Global resets*/

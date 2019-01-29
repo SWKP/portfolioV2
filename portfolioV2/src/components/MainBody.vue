@@ -87,7 +87,8 @@ export default {
     -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
 
-    @media (max-width: 1155px) {
+    @media (max-width: 450px) {
+      width: 70vw;
     }
 
     h1 {
@@ -106,13 +107,14 @@ export default {
       @media (max-width: 755px) {
         padding: 4rem 2rem 4rem 16px;
         font-size: 2.5rem;
-        letter-spacing: 0.5rem;
+        letter-spacing: 0.3rem;
         text-align: left;
       }
     }
   }
   &__inner {
     top: 20rem;
+    margin: 0px 15px;
   }
 
   &__projects {

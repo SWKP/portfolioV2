@@ -93,7 +93,6 @@ export default {
 .mainNavigation {
   margin-top: 270px;
   position: relative;
-  background: #2b2b2b;
   max-width: 70rem;
   align-self: flex-end;
   z-index: 1;
@@ -103,13 +102,18 @@ export default {
   }
 
   @media (max-width: 660px) {
+    width: 100vw;
     .button {
-      width: 30rem;
+      width: 20rem;
     }
+
     ul {
-      width: 290px;
-      a {
+      width: 20rem;
+      margin: 0 auto;
+      ul a {
         display: block;
+        margin-bottom: 6px;
+        max-width: 20rem;
       }
     }
   }
@@ -124,6 +128,8 @@ export default {
     font-family: "brandon", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     transition: all 0.3s;
+    background: #2b2b2b;
+    height: 51px;
 
     &:hover {
       color: white;
@@ -141,6 +147,10 @@ export default {
   background: #2b2b2b;
   top: -6rem;
   border-bottom: 3px solid #3a3a3a;
+
+  @media (max-width: 660px) {
+    display: none;
+  }
 
   input[type="text"] {
     margin: 1.2rem 0 1rem 9rem;
@@ -163,6 +173,8 @@ export default {
   }
 }
 .router-link-exact-active {
+  position: relative;
+  z-index: 99;
   background-image: linear-gradient(#86867500, #86867500 62%, #bfc239 61%);
 
   @media (max-width: 670px) {
@@ -171,10 +183,6 @@ export default {
 
   span.button__text {
     color: #bfc239;
-
-    @media (max-width: 660px) {
-      width: 290px;
-    }
   }
 }
 </style>

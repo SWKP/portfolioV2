@@ -1,7 +1,10 @@
 <template>
   <div class="header">
     <div class="header__inner">
-      <h4>- Karol Poniatowski -</h4>
+      <h4>
+        <span>-</span> Karol Poniatowski
+        <span>-</span>
+      </h4>
       <h1>Web dev & Design</h1>
       <h5>Napa, California</h5>
       <span class="lineOne">
@@ -53,6 +56,12 @@ export default {};
       @media (max-width: 760px) {
         letter-spacing: 1rem;
       }
+
+      @media (max-width: 460px) {
+        span {
+          display: none;
+        }
+      }
     }
     h5 {
       font-family: "adam", Helvetica, Arial, sans-serif;
@@ -65,7 +74,7 @@ export default {};
       margin: auto;
 
       @media (max-width: 520px) {
-        letter-spacing: 1.5rem;
+        letter-spacing: 1rem;
       }
     }
 
@@ -76,10 +85,6 @@ export default {};
       left: 50%;
       margin-left: -3px;
       top: 135px;
-
-      @media (max-width: 709px) {
-        top: 215px;
-      }
 
       p {
         font-family: "adam", Helvetica, Arial, sans-serif;
@@ -114,10 +119,6 @@ export default {};
       margin-left: -3px;
       top: 430px;
       z-index: -1;
-
-      @media (max-width: 709px) {
-        top: 500px;
-      }
     }
   }
 }

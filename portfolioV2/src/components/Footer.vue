@@ -2,19 +2,19 @@
   <div class="footer">
     <div class="socialIcons">
       <a href="#">
-        <img src="../assets/svg/facebook.svg" alt>
+        <img src="../assets/svg/facebook.svg" alt="facebook icon">
+      </a>
+      <a href="https://www.linkedin.com/in/karol-poniatowski-a13610117/" target="_blank">
+        <img src="../assets/svg/linkedIn.svg" alt="linkedin icon">
       </a>
       <a href="#">
-        <img src="../assets/svg/linkedIn.svg" alt>
+        <img src="../assets/svg/dribble.svg" alt="dribble icon">
+      </a>
+      <a href="https://github.com/SWKP" target="_blank">
+        <img src="../assets/svg/github.svg" alt="github icon">
       </a>
       <a href="#">
-        <img src="../assets/svg/dribble.svg" alt>
-      </a>
-      <a href="#">
-        <img src="../assets/svg/github.svg" alt>
-      </a>
-      <a href="#">
-        <img src="../assets/svg/steam.svg" alt>
+        <img src="../assets/svg/steam.svg" alt="steam icon">
       </a>
     </div>
     <div class="otherSites">
@@ -70,6 +70,10 @@ export default {
   flex-direction: column;
   justify-content: space-around;
 
+  @media (max-width: 400px) {
+    padding: 5rem 3rem 5rem 3rem;
+  }
+
   h4 {
     flex: 1;
     font-size: 1.75rem;
@@ -90,13 +94,17 @@ export default {
   background-color: #252525;
   text-align: center;
   font-family: "adam", Helvetica, Arial, sans-serif;
-  padding: 15rem 0 20rem;
+  padding: 15rem 4rem 13rem;
   z-index: 1;
   h3 {
     color: #424242;
     font-size: 1.5rem;
     letter-spacing: 1rem;
     line-height: 5rem;
+
+    @media (max-width: 750px) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 

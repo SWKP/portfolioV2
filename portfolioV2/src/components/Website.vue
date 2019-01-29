@@ -261,8 +261,8 @@ ul {
     z-index: 10;
     display: flex;
     min-width: 500px;
-    @media (max-width: 400px) {
-      min-width: 360px;
+    @media (max-width: 560px) {
+      clip-path: polygon(100% 0, 100% 34%, 60% 34%, 60% 100%, 0% 100%, 0% 0);
     }
   }
 
@@ -293,7 +293,7 @@ ul {
         font-size: 4rem;
         top: 0.5rem;
         height: 100%;
-        right: -5rem;
+        right: -3rem;
       }
     }
   }
@@ -369,8 +369,12 @@ ul {
     background-size: cover;
     flex: 2;
     z-index: 9;
-    filter: blur(2px);
+    filter: blur(4px);
     transition: all 0.3s;
+
+    @media (max-width: 560px) {
+      margin-left: -60rem;
+    }
 
     &::before {
       content: "";
