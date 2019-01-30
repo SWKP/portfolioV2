@@ -1,27 +1,36 @@
 <template>
   <div>
     <ul>
-      <li v-for="website in filteredSites">
+      <li v-for="(website, index) in filteredSites">
         <div class="project">
           <div class="project__info">
             <div class="project__date">
               <h4>
                 {{ website.date }}
-                <span>{{ website.number }}</span>
+                <span>{{ index + 1 }}</span>
               </h4>
             </div>
             <div class="project__data">
-              <div class="urlTitle">
+              <div class="url__title" v-on:click="website.swapData = !website.swapData">
                 <h2>{{ website.url }}</h2>
               </div>
-              <div class="detailsTitle">
-                <h4>Project Details</h4>
-              </div>
-              <div class="detailsList">
-                <ul>
-                  <li v-for="detail in website.details">{{ detail.feature }}</li>
-                </ul>
-              </div>
+              <transition name="fade" mode="out-in">
+                <div class="details" v-if="!website.swapData" key="details">
+                  <div class="details__title">
+                    <h4>Project Details</h4>
+                  </div>
+                  <div class="details__list">
+                    <ul>
+                      <li v-for="detail in website.details">{{ detail.feature }}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="details" v-else-if="website.swapData" key="desc">
+                  <div class="details__description">
+                    <p>{{ website.description }}</p>
+                  </div>
+                </div>
+              </transition>
             </div>
           </div>
           <!-- On click multiple things happen -->
@@ -42,7 +51,7 @@
       <h4>Load More Websites</h4>
     </div>
     <!-- MODALPOPUP STARTS HERE -->
-    <transition name="fade">
+    <transition name="modal">
       <div
         class="modal"
         v-show="modal"
@@ -80,7 +89,10 @@ export default {
             { feature: "High traffic Ecommerce" },
             { feature: "Custom navigation" },
             { feature: "Events implementation" }
-          ]
+          ],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         },
         {
           number: "2",
@@ -91,7 +103,10 @@ export default {
             "http://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
           full:
             "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
-          details: [{ feature: "Bootstrap" }, { feature: "Custom SVG" }]
+          details: [{ feature: "Bootstrap" }, { feature: "Custom SVG" }],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         },
         {
           number: "3",
@@ -106,7 +121,10 @@ export default {
             { feature: "Wordpress" },
             { feature: "Agile development" },
             { feature: "Events implementation" }
-          ]
+          ],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         },
         {
           number: "4",
@@ -121,7 +139,10 @@ export default {
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
             { feature: "Brand development" }
-          ]
+          ],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         },
         {
           number: "5",
@@ -136,7 +157,10 @@ export default {
             { feature: "Wordpress" },
             { feature: "PHP" },
             { feature: "Graphic Design" }
-          ]
+          ],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         },
         {
           number: "6",
@@ -151,7 +175,10 @@ export default {
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
             { feature: "Brand development" }
-          ]
+          ],
+          swapData: false,
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         }
       ],
       modal: false,
@@ -290,7 +317,7 @@ ul {
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
         color: #3a3a3a;
-        font-size: 4rem;
+        font-size: 3.5rem;
         top: 0.5rem;
         height: 100%;
         right: -3rem;
@@ -303,12 +330,13 @@ ul {
     flex-direction: column;
     width: 100%;
 
-    .urlTitle {
-      flex: 0.75;
+    .url__title {
+      flex-basis: 85px;
       width: 100%;
       text-align: center;
       border-bottom: 4px solid #3a3a3a;
       transition: all 0.3s;
+      cursor: pointer;
 
       &:hover {
         background: var(--main-highlight-color);
@@ -327,10 +355,13 @@ ul {
         transform: translateY(-50%);
       }
     }
-    .detailsTitle {
+
+    .details {
+    }
+    .details__title {
       width: 50%;
       text-align: center;
-      flex: 0.4;
+      height: 50px;
       border-right: 4px solid #3a3a3a;
       border-bottom: 4px solid #3a3a3a;
 
@@ -345,7 +376,7 @@ ul {
       }
     }
 
-    .detailsList {
+    .details__list {
       flex: 1;
       ul {
         margin-top: 1.25rem;
@@ -358,6 +389,17 @@ ul {
           font-family: "brandon", Helvetica, Arial, sans-serif;
           font-weight: 100;
         }
+      }
+    }
+
+    .details__description {
+      p {
+        color: #a3a3a3;
+        font-size: 1.75rem;
+        font-family: "brandon", Helvetica, Arial, sans-serif;
+        font-weight: 100;
+        max-width: 280px;
+        margin: 15px 0 0 25px;
       }
     }
   }
@@ -433,18 +475,9 @@ ul {
   top: 0;
   left: 0;
   width: 100vw;
+  transition: all 0.3s ease;
 }
-/*
-MIGHT NOT NEED
-.modal::before {
-  content: "";
-  background: #000000b0;
-  width: 2000vh;
-  position: absolute;
-  top: -50vh;
-  z-index: -1;
-}
-*/
+
 .modalInner {
   background-color: #1a1e1ecc;
   position: fixed;
@@ -455,6 +488,9 @@ MIGHT NOT NEED
 
   img {
     width: 75vw;
+    cursor: pointer;
+    transform: scaleZ(1);
+    transition: all 0.5s ease;
   }
 }
 
@@ -465,6 +501,19 @@ MIGHT NOT NEED
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+
+.flip-enter-active {
+  transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53); //ease-in-quad
+}
+.flip-leave-active {
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); //ease-out-quad
+}
+.flip-enter,
+.flip-leave-to {
+  transform: scaleY(0) translateZ(0);
+  opacity: 0;
+}
+
 .noResults {
   margin-top: 18px;
   background-color: #2b2b2b;
@@ -482,5 +531,19 @@ MIGHT NOT NEED
 
 .noScroll {
   overflow-y: hidden !important;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modalInner img,
+.modal-leave-active .modalInner img {
+  -webkit-transform: scaleZ(0);
+  transform: scaleX(0);
 }
 </style>
