@@ -23,6 +23,7 @@ export default {};
 .header {
   height: 100vh;
   background-color: #3a3a3a;
+  margin-bottom: 270px;
   //background: linear-gradient(#868686 -200%, #3a3a3a);
 
   &__inner {

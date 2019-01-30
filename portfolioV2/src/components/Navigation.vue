@@ -1,13 +1,5 @@
-<template>
-  <div class="mainNavigation">
-    <transition name="fade" mode="out-in">
-      <div v-if="['/'].includes(this.activeRout)" class="search">
-        <input type="text" v-model="search" placeholder="Search..." @keyup.enter="submitSearch">
-        <button class="submit" type="submit" v-on:click="this.submitSearch">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-    </transition>
+<template sticky-container>
+  <div class="mainNavigation" v-sticky sticky-offset="offset" sticky-side="top" sticky-z-index="99">
     <ul>
       <router-link to="/">
         <li>
@@ -55,6 +47,14 @@
         </li>
       </router-link>
     </ul>
+    <transition name="fade" mode="out-in">
+      <div v-if="['/'].includes(this.activeRout)" class="search">
+        <input type="text" v-model="search" placeholder="Search..." @keyup.enter="submitSearch">
+        <button class="submit" type="submit" v-on:click="this.submitSearch">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -91,11 +91,8 @@ export default {
 }
 
 .mainNavigation {
-  margin-top: 270px;
-  position: relative;
-  max-width: 70rem;
+  left: 892px !important;
   align-self: flex-end;
-  z-index: 1;
 
   .button {
     width: 13rem;
@@ -139,13 +136,14 @@ export default {
 }
 
 .search {
-  position: absolute;
-  right: 0;
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  position: relative;
+  right: -37rem;
+  -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 20% 100%);
   height: 6rem;
   width: 29rem;
   background: #2b2b2b;
-  top: -6rem;
+  top: 0.05rem;
   border-bottom: 3px solid #3a3a3a;
 
   @media (max-width: 660px) {

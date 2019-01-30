@@ -76,6 +76,7 @@ export default {
   //background: #494949;
   max-width: 120rem;
   margin: 0 auto;
+  z-index: 1;
 
   .projectsTitle {
     display: inline-block;
@@ -86,6 +87,7 @@ export default {
     margin: 10rem 0;
     -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
+    bottom: -260px;
 
     @media (max-width: 450px) {
       width: 70vw;
