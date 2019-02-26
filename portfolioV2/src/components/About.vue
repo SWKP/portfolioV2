@@ -22,13 +22,13 @@
           <h4>My Skills</h4>
         </div>
         <img
-          src="http://karolponiatowski.com/projects/images/portfolio/about/personalSkills.png"
+          src="https://karolponiatowski.com/projects/images/portfolio/about/personalSkills.png"
           alt
         >
       </div>
     </div>
     <div class="code__image">
-      <img src="http://karolponiatowski.com/projects/images/portfolio/about/karolP01.png" alt>
+      <img src="https://karolponiatowski.com/projects/images/portfolio/about/karolP01.png" alt>
     </div>
   </div>
 </template>

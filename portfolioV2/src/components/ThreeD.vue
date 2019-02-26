@@ -80,61 +80,61 @@ export default {
       gallery: [
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-sonicDistruptor.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-sonicDistruptor.png",
           model:
             "https://sketchfab.com/models/b6e540a280a94c9ca65082900a9a7e26/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png",
           model:
             "https://sketchfab.com/models/d3923a294cbd420d8cda75cf5907fd8c/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-revolver.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-revolver.png",
           model:
             "https://sketchfab.com/models/dd8b8415da0145b49e44bf44c7585171/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-pig.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-pig.png",
           model:
             "https://sketchfab.com/models/299fe568575248eab045f87b8493299b/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-head.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-head.png",
           model:
             "https://sketchfab.com/models/b7e4a4ec0bfc46a28a72c2e3ba5c8bcd/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-grapeCrusher.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-grapeCrusher.png",
           model:
             "https://sketchfab.com/models/7abbd2f8563e487fa792cf6221c47642/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-fordShoebox.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-fordShoebox.png",
           model:
             "https://sketchfab.com/models/7060f91e5da2473f96cf7df80b5f31d5/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png",
           model:
             "https://sketchfab.com/models/d3923a294cbd420d8cda75cf5907fd8c/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-dog01.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-dog01.png",
           model:
             "https://sketchfab.com/models/ce326fbbc78b4f31bb25b3e1495f5468/embed?autospin=0.2&amp;autostart=1"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-airStream.png",
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-airStream.png",
           model:
             "https://sketchfab.com/models/098a4b67368b4b36ac9c1ebc96d9e509/embed?autospin=0.2&amp;autostart=1"
         },

@@ -13,9 +13,6 @@
       <a href="https://github.com/SWKP" target="_blank">
         <img src="../assets/svg/github.svg" alt="github icon">
       </a>
-      <a href="#">
-        <img src="../assets/svg/steam.svg" alt="steam icon">
-      </a>
     </div>
     <div class="otherSites">
       <h4>My Other Sites</h4>

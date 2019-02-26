@@ -59,7 +59,8 @@
         transition="fadeIn"
       >
         <div class="modalInner">
-          <img v-bind:src="modalUrl">
+          <img class="full" v-bind:src="modalUrl">
+          <img class="preloader" src="../assets/preloader/preloader.gif" alt>
         </div>
       </div>
     </transition>
@@ -81,9 +82,9 @@ export default {
           name: "napa valley film festival",
           url: "nvff.org",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/nvff-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/nvff-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-nvff-org-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-nvff-org-min.png",
           details: [
             { feature: "Wordpress" },
             { feature: "High traffic Ecommerce" },
@@ -100,9 +101,9 @@ export default {
           name: "dixicoin",
           url: "dixicoin.net",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
           details: [{ feature: "Bootstrap" }, { feature: "Custom SVG" }],
           swapData: false,
           description:
@@ -114,9 +115,9 @@ export default {
           name: "petaluma museum",
           url: "petalumamuseum.com",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-petalumamuseum-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-petalumamuseum-min.png",
           details: [
             { feature: "Wordpress" },
             { feature: "Agile development" },
@@ -132,9 +133,9 @@ export default {
           name: "roundone",
           url: "roundone.win",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/roundOne-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/roundOne-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-roundone-win-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-roundone-win-min.png",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -150,9 +151,9 @@ export default {
           name: "Feast it Forward",
           url: "feastitforward.com",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/feast-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/feast-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-feastitforward-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-feastitforward-min.png",
           details: [
             { feature: "Wordpress" },
             { feature: "PHP" },
@@ -168,9 +169,9 @@ export default {
           name: "Jeremy Jack Inc.",
           url: "jeremyjackinc.com",
           image:
-            "http://karolponiatowski.com/projects/images/portfolio/jeremyjack-project.png",
+            "https://karolponiatowski.com/projects/images/portfolio/jeremyjack-project.png",
           full:
-            "http://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-jeremyjackinc-min.png",
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-jeremyjackinc-min.png",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -186,43 +187,43 @@ export default {
       gallery: [
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-sonicDistruptor.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-sonicDistruptor.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-revolver.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-revolver.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-pig.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-pig.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-head.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-head.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-grapeCrusher.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-grapeCrusher.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-fordShoebox.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-fordShoebox.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-explosiveGel.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-dog01.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-dog01.png"
         },
         {
           source:
-            "http://karolponiatowski.com/projects/images/portfolio/3d/3d-airStream.png"
+            "https://karolponiatowski.com/projects/images/portfolio/3d/3d-airStream.png"
         },
         {
           source: "Empty element to reset src",
@@ -486,11 +487,20 @@ ul {
   height: 100vh;
   text-align: center;
 
-  img {
+  .full {
+    position: relative;
     width: 75vw;
     cursor: pointer;
     transform: scaleZ(1);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease 0.75s;
+    z-index: 99;
+  }
+  .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
   }
 }
 

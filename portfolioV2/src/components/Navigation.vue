@@ -1,5 +1,6 @@
-<template sticky-container>
-  <div class="mainNavigation" v-sticky sticky-offset="offset" sticky-side="top" sticky-z-index="99">
+<template class="mainContainer" sticky-container>
+  <!-- NEEDS v-sticky to work -->
+  <div class="mainNavigation" sticky-side="top" sticky-z-index="99">
     <ul>
       <router-link to="/">
         <li>
@@ -89,9 +90,12 @@ export default {
   color: #cddc39 !important;
   cursor: pointer;
 }
+.mainContainer {
+  width: 100vw;
+}
 
 .mainNavigation {
-  left: 892px !important;
+  transition: all 0.25s ease-in 0s;
   align-self: flex-end;
 
   .button {
@@ -182,5 +186,11 @@ export default {
   span.button__text {
     color: #bfc239;
   }
+}
+.mainNavigation.vue-sticky-el.top-sticky {
+  transform: translateX(-50%);
+  left: 50% !important;
+  width: 660px !important;
+  transition: all 0.25s ease-in 0s;
 }
 </style>

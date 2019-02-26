@@ -27,7 +27,6 @@ export default {};
   //background: linear-gradient(#868686 -200%, #3a3a3a);
 
   &__inner {
-    //width: 765px;
     min-width: 375px;
     text-align: center;
     position: relative;
