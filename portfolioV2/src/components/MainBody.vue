@@ -6,7 +6,7 @@
     <app-Navigation></app-Navigation>
     <div class="mainBody__inner">
       <div class="mainBody__projects">
-        <transition name="fade" mode="out-in">
+        <transition name="slide-fade" mode="out-in">
           <router-view></router-view>
           <!--<component v-bind:is="activeComponent"></component>-->
         </transition>
@@ -124,19 +124,6 @@ export default {
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transform: rotateX(0deg);
-  transition: all 0.25s cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: rotateY(90deg);
-  transition: all 0.5s ease-out;
-}
-
 $anim-text-offset: 1em;
 
 .button {
@@ -230,5 +217,17 @@ $anim-text-offset: 1em;
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
 }
 </style>

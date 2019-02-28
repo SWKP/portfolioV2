@@ -152,7 +152,7 @@ export default {
 .grid-container {
   position: relative;
   max-width: 1400px;
-  margin: 25rem 0 35rem;
+  margin: 10rem 0 10rem;
 }
 .gallery {
   position: relative;

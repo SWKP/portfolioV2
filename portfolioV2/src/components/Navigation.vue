@@ -149,6 +149,7 @@ export default {
   background: #2b2b2b;
   top: 0.05rem;
   border-bottom: 3px solid #3a3a3a;
+  margin-bottom: -6rem;
 
   @media (max-width: 660px) {
     display: none;

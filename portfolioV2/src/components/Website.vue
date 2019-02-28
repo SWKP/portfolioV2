@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(website, index) in filteredSites">
+      <li v-for="(website, index) in filteredSites" transition="stagger" stagger="100">
         <div class="project">
           <div class="project__info">
             <div class="project__date">
@@ -271,6 +271,8 @@ html {
   scroll-behavior: smooth;
 }
 ul {
+  position: relative;
+  z-index: 1;
   list-style-type: none;
 }
 .project {
@@ -332,6 +334,8 @@ ul {
     width: 100%;
 
     .url__title {
+      position: relative;
+      left: 0;
       flex-basis: 85px;
       width: 100%;
       text-align: center;
@@ -340,6 +344,9 @@ ul {
       cursor: pointer;
 
       &:hover {
+        position: relative;
+        left: -10px;
+        width: 105%;
         background: var(--main-highlight-color);
       }
       &:hover h2 {

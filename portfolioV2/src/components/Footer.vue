@@ -91,12 +91,12 @@ export default {
   background-color: #252525;
   text-align: center;
   font-family: "adam", Helvetica, Arial, sans-serif;
-  padding: 15rem 4rem 13rem;
+  padding: 15rem 4rem 0;
   z-index: 1;
   h3 {
     color: #424242;
     font-size: 1.5rem;
-    letter-spacing: 1rem;
+    letter-spacing: 0.7rem;
     line-height: 5rem;
 
     @media (max-width: 750px) {
