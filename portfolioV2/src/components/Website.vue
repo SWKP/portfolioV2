@@ -93,7 +93,7 @@ export default {
           ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "A collaborative wordpress website that needed to support high traffic e-commerce ticket sales and live events for the 2017 Napa Valley film festival."
         },
         {
           number: "2",
@@ -104,10 +104,14 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
-          details: [{ feature: "Bootstrap" }, { feature: "Custom SVG" }],
+          details: [
+            { feature: "Bootstrap" },
+            { feature: "Custom SVG" },
+            { feature: "PHP" }
+          ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "Dixicoin was a previously established digital cryptocurrency for gamers that needed a new website. The website was built in Bootstrap with a PHP enabled contact form."
         },
         {
           number: "3",
@@ -125,7 +129,7 @@ export default {
           ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "The Petaluma Museum is a non-profit that needed a new updated website. I worked on a Scrum team primarily as a web designer but I helped with the development process and bug fixes."
         },
         {
           number: "4",
@@ -143,7 +147,7 @@ export default {
           ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "Roundone was a cryptocurrency initial coin offering where users could place bets on teams competing in of tournament events. The website was built in Bootstrap."
         },
         {
           number: "5",
@@ -157,11 +161,12 @@ export default {
           details: [
             { feature: "Wordpress" },
             { feature: "PHP" },
-            { feature: "Graphic Design" }
+            { feature: "Graphic Design" },
+            { feature: "E-commerce" }
           ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "Feast it Forward is a food network with a wine tasting studio in Napa, CA. Their website required an event calendar system, e-commerce store integration and SEO optimization."
         },
         {
           number: "6",
@@ -179,7 +184,7 @@ export default {
           ],
           swapData: false,
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "A Napa Valley HVAC service company that was previously using a simple Squarespace website and wanted a website where they could share their process."
         }
       ],
       modal: false,
@@ -276,7 +281,6 @@ ul {
   list-style-type: none;
 }
 .project {
-  box-shadow: 0px 0px 22px #00000075;
   margin-top: 2rem;
   width: 100%;
   height: 25rem;
@@ -337,20 +341,22 @@ ul {
       position: relative;
       left: 0;
       flex-basis: 85px;
-      width: 100%;
+      width: 110%;
       text-align: center;
       border-bottom: 4px solid #3a3a3a;
       transition: all 0.3s;
       cursor: pointer;
+      padding-right: 40px;
 
       &:hover {
         position: relative;
-        left: -10px;
-        width: 105%;
+        left: -20px;
         background: var(--main-highlight-color);
+        padding-right: 60px;
       }
       &:hover h2 {
         color: white;
+        position: relative;
       }
 
       h2 {
@@ -402,10 +408,6 @@ ul {
 
     .details__description {
       p {
-        color: #a3a3a3;
-        font-size: 1.75rem;
-        font-family: "brandon", Helvetica, Arial, sans-serif;
-        font-weight: 100;
         max-width: 280px;
         margin: 15px 0 0 25px;
       }
@@ -464,6 +466,8 @@ ul {
   padding: 5rem 0 8rem 0;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
+  top: 0;
+  transition: all 0.2s ease-out;
 
   & h4 {
     color: #565656;
@@ -472,6 +476,8 @@ ul {
   }
 
   &:hover {
+    position: relative;
+    top: 5px;
     cursor: pointer;
   }
 }
@@ -538,11 +544,6 @@ ul {
   h1 {
     padding: 4rem 10rem 5rem;
     text-align: center;
-    font-family: "adam", Helvetica, Arial, sans-serif;
-    color: #fff;
-    font-weight: 100;
-    font-size: 3rem;
-    letter-spacing: 2rem;
   }
 }
 

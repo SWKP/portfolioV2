@@ -65,6 +65,7 @@
           mozallowfullscreen="true"
           webkitallowfullscreen="true"
         ></iframe>
+        <img class="preloader" src="../assets/preloader/preloader.gif" alt>
       </div>
     </div>
   </div>
@@ -152,7 +153,7 @@ export default {
 .grid-container {
   position: relative;
   max-width: 1400px;
-  margin: 10rem 0 10rem;
+  margin: 15rem 0 15rem;
 }
 .gallery {
   position: relative;
@@ -170,7 +171,7 @@ export default {
   h1 {
     font-family: "adam", Helvetica, Arial, sans-serif;
     font-weight: 200;
-    font-size: 8rem;
+    font-size: 5rem;
     color: #ffffff;
     text-shadow: 5px 5px 9px #2b2b2bba;
 
@@ -194,6 +195,14 @@ export default {
     margin: 0 auto;
     display: block;
     overflow: hidden;
+
+    .preloader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
   }
 }
 

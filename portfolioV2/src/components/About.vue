@@ -98,11 +98,6 @@ export default {
 
       p {
         padding: 3rem 0 6rem 10vw;
-        font-size: 1.8rem;
-        font-family: "brandon", Helvetica, Arial, sans-serif;
-        max-width: 60ch;
-        line-height: 2.6rem;
-        color: #bfbfbf;
       }
     }
 

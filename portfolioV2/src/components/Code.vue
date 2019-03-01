@@ -9,13 +9,17 @@
     </div>
     <transition name="slide-fade" mode="out-in">
       <div class="code__overview" :key="codeProjects[activeProject].codeTitle">
-        <h2>{{ codeProjects[activeProject].codeTitle }}</h2>
+        <div class="overview__title">
+          <img class="arrow" src="../assets/svg/arrow_001.svg" alt="github icon">
+          <div class="overview__buttons">
+            <a v-bind:href="codeProjects[activeProject].codeGithub" target="_blank">
+              <img src="../assets/svg/github.svg" alt="github icon">
+            </a>
+          </div>
+          <h2>{{ codeProjects[activeProject].codeTitle }}</h2>
+        </div>
         <div class="overview__description">
           <p>{{ codeProjects[activeProject].codeDescription }}</p>
-          <div class="overview__buttons">
-            <button>X</button>
-            <button>X</button>
-          </div>
         </div>
       </div>
     </transition>
@@ -29,24 +33,27 @@ export default {
       activeProject: 0,
       codeProjects: [
         {
-          codeTitle: "Portfolio V2 - Frontend vue.js",
+          codeTitle: "Portfolio",
           codeDescription:
-            "1This website is mainly powered by vue.js - a web framework. Currently the website is running on the frontend, In the near future I’m planning on implementing a nosql backend. If you’re curious how I built this site check out the github link below."
+            "The website you're currently on is primarily build with Vue.js - a web framework. I needed a place where I could store everything and gauge my progress... and a reason for me to learn a new toolset in the process. If you're interested in the internal working of this website check out it's code over at Github.",
+          codeGithub: "https://www.google.com"
         },
         {
-          codeTitle: "Zombie Painter - phaser.js",
-          codeDescription:
-            "2This website is mainly powered by vue.js - a web framework. Currently the website is running on the frontend, In the near future I’m planning on implementing a nosql backend. If you’re curious how I built this site check out the github link below."
+          codeTitle: "Zombie Painter",
+          codeDescription: "A small zombie driving game developed in phaser.js",
+          codeGithub: "https://www.google.com"
         },
         {
-          codeTitle: "Space Platformer - phaser.js",
+          codeTitle: "Space Platformer",
           codeDescription:
-            "3This website is mainly powered by vue.js - a web framework. Currently the website is running on the frontend, In the near future I’m planning on implementing a nosql backend. If you’re curious how I built this site check out the github link below."
+            "A 2D shoot em up where you're trying to survive against space mutants.",
+          codeGithub: "#"
         },
         {
-          codeTitle: "Another project in development",
+          codeTitle: "More coming soon",
           codeDescription:
-            "4This website is mainly powered by vue.js - a web framework. Currently the website is running on the frontend, In the near future I’m planning on implementing a nosql backend. If you’re curious how I built this site check out the github link below."
+            "More random code projects as I work on new things and/or get around to posting the things I've worked on in the past.",
+          codeGithub: "#"
         }
       ]
     };
@@ -119,6 +126,14 @@ export default {
     flex-direction: column;
     justify-content: space-between;
 
+    .overview__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background: #2b2b2b;
+      margin-bottom: 1.5rem;
+    }
+
     h2,
     .overview__description {
       height: 100%;
@@ -126,29 +141,26 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #2b2b2b;
     }
-    h2 {
-      font-size: 4rem;
-      flex: 1;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-    }
+
     .overview__description {
       padding: 0 35px;
       flex: 3;
+      background: #2b2b2b;
     }
-    .overview__buttons {
-      align-self: flex-start;
 
-      button {
-        width: 50px;
-        height: 50px;
-        background: orangered;
-        border-radius: 50%;
-        border: none;
-        margin: 2rem 2rem 0 0;
-      }
+    .overview__buttons {
+      align-self: center;
+      flex: 0.5;
+    }
+
+    h2 {
+      font-size: 3rem;
+      flex: 1;
+      height: 100%;
+      align-self: center;
+      left: -20%;
+      position: relative;
     }
   }
 }
@@ -165,6 +177,24 @@ h1 {
   background: #2b2b2b;
   font-size: 3rem;
 }
+
+.overview__buttons a img {
+  transition: all 0.3s;
+  position: relative;
+  cursor: pointer;
+}
+
+.overview__buttons a img:hover {
+  filter: brightness(3);
+  transform: scale(1.2);
+}
+.arrow {
+  height: 85px;
+  margin: 0rem 1rem 0rem 0.9rem;
+  transform: scale(0.5, 0.75);
+}
+
+//Animations
 
 .slide-fade-enter-active {
   transition: all 0.3s ease;
