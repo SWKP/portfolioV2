@@ -1,9 +1,9 @@
 <template>
   <div class="mainBody">
-    <div class="projectsTitle">
-      <h1>My Projects</h1>
-    </div>
     <app-Navigation></app-Navigation>
+    <div class="projectsTitle">
+      <h1>{{ tagLine }}</h1>
+    </div>
     <div class="mainBody__inner">
       <div class="mainBody__projects">
         <transition name="slide-fade" mode="out-in">
@@ -45,22 +45,46 @@ export default {
   },
   data() {
     return {
+      tagLine: "Websites",
       activeComponent: "app-contact"
     };
   },
   watch: {
     //watch for route changes
     $route(to, from) {
-      //this.activeRout = this.$route.fullPath;
       this.currentRout(this.$route.fullPath);
+      this.changeTagline();
     }
   },
   methods: {
     currentRout: function(data) {
       bus.$emit("routChanged", data);
+      console.log("routeChanged");
+    },
+    changeTagline: function() {
+      switch (this.$route.fullPath) {
+        case "/":
+          this.tagLine = "Websites";
+          break;
+        case "/code":
+          this.tagLine = "My Code";
+          break;
+        case "/3d":
+          this.tagLine = "3D Models";
+          break;
+        case "/about":
+          this.tagLine = "About Me";
+          break;
+        case "/contact":
+          this.tagLine = "Contact Me";
+          break;
+        default:
+        // code block
+      }
     }
   },
   created() {
+    this.changeTagline();
     bus.$on("componentChanged", data => {
       this.activeComponent = data;
     });
@@ -82,15 +106,19 @@ export default {
     display: inline-block;
     position: absolute;
     width: 45vw;
+    min-width: 35rem;
     left: 0px;
     background: #bcbcbc;
-    margin: 10rem 0;
+    margin-top: 25rem;
     -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
-    bottom: -260px;
 
     @media (max-width: 450px) {
       width: 70vw;
+    }
+
+    @media (max-width: 660px) {
+      margin-top: 55rem;
     }
 
     h1 {
@@ -107,7 +135,7 @@ export default {
         letter-spacing: 1rem;
       }
       @media (max-width: 755px) {
-        padding: 4rem 2rem 4rem 16px;
+        padding: 4rem;
         font-size: 2.5rem;
         letter-spacing: 0.3rem;
         text-align: left;
@@ -115,12 +143,10 @@ export default {
     }
   }
   &__inner {
+    position: relative;
+    z-index: 1;
     top: 20rem;
     margin: 0px 15px;
-  }
-
-  &__projects {
-    margin: 10rem 0px;
   }
 }
 

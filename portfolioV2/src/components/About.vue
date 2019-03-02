@@ -7,7 +7,12 @@
           <span>I keep getting drawn back to both.</span>
         </h1>
         <p>
-          Thanks for visiting my website where I catalog my designs and any other skills/technologies I feel are complementary to it.
+          I've been embracing art for as long as I can remember, which has drawn me to front-end web development. I enjoy collecting art books, reading science fiction novels, never finishing long RPGs and I can't stop listening to
+          <strong
+            style="color: orange;"
+          >Synthwave</strong> (send help!).
+          <br>
+          <br>Even though web development has mainly been a self educated process for me I'm in the process of finishing up the web programmer certification at SRJC.
           <br>
           <br>The
           <strong style="color: orange;">top 5 web technologies</strong> I find myself using the most often are Javascript, SASS, Bootstrap, Wordpress and Vue.js.
@@ -77,7 +82,7 @@ export default {
         font-family: "adam", Helvetica, Arial, sans-serif;
         font-weight: 100;
         color: #c1d034;
-        font-size: 5rem;
+        font-size: 4.5rem;
         max-width: 900px;
         padding: 7rem 5rem 2.5rem 10vw;
         //border-right: 2px solid #383838;

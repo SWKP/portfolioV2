@@ -1,6 +1,6 @@
 <template>
   <div class="contact-form">
-    <h1 class="contact-form_title">Shoot me a message</h1>
+    <h1 class="contact-form_title">Fill form below</h1>
     <!-- 
       v-on:submit="onSubmitNew"
       v-bind:action="formAction()"
@@ -158,6 +158,7 @@ export default {
   background: #2b2b2b;
   border: none;
   width: 90%;
+  color: #a32a52;
   transition: background-color 200ms linear;
 }
 

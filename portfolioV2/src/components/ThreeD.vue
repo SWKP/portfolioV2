@@ -157,6 +157,7 @@ export default {
 }
 .gallery {
   position: relative;
+  z-index: 1;
   left: 6rem;
   grid-gap: 2rem;
   margin: 10rem 0;

@@ -78,7 +78,7 @@ export default {
       websites: [
         {
           number: "1",
-          date: "Sep 2017",
+          date: "Sep 2018",
           name: "napa valley film festival",
           url: "nvff.org",
           image:
@@ -420,7 +420,7 @@ ul {
     background-color: #838383;
     background-size: cover;
     flex: 2;
-    z-index: 9;
+    z-index: 2;
     filter: blur(4px);
     transition: all 0.3s;
 
@@ -459,7 +459,7 @@ ul {
 
 .loadMore {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   text-align: center;
   margin: 1vw 0 10vw 0;
   background-color: #bcbcbc;
@@ -483,8 +483,7 @@ ul {
 }
 
 .modal {
-  display: block;
-  position: absolute;
+  position: fixed;
   z-index: 99;
   top: 0;
   left: 0;
@@ -494,7 +493,6 @@ ul {
 
 .modalInner {
   background-color: #1a1e1ecc;
-  position: fixed;
   overflow-y: scroll !important;
   width: 100vw;
   height: 100vh;
@@ -513,7 +511,7 @@ ul {
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: -1;
+    z-index: 90;
   }
 }
 

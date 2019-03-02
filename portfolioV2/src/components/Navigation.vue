@@ -70,7 +70,7 @@ export default {
     };
   },
   methods: {
-    changeComponent: function(component) {
+    changeComponent: component => {
       bus.$emit("componentChanged", component);
     },
     submitSearch: function() {
@@ -95,8 +95,11 @@ export default {
 }
 
 .mainNavigation {
+  position: relative;
+  z-index: 1;
   transition: all 0.25s ease-in 0s;
   align-self: flex-end;
+  margin-bottom: 20rem;
 
   .button {
     width: 13rem;
@@ -111,9 +114,13 @@ export default {
     ul {
       width: 20rem;
       margin: 0 auto;
-      ul a {
+
+      li {
+        margin: 10px 0;
+      }
+
+      a {
         display: block;
-        margin-bottom: 6px;
         max-width: 20rem;
       }
     }
@@ -193,5 +200,6 @@ export default {
   left: 50% !important;
   width: 660px !important;
   transition: all 0.25s ease-in 0s;
+  margin-bottom: 300px;
 }
 </style>

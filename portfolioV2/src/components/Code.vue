@@ -36,12 +36,12 @@ export default {
           codeTitle: "Portfolio",
           codeDescription:
             "The website you're currently on is primarily build with Vue.js - a web framework. I needed a place where I could store everything and gauge my progress... and a reason for me to learn a new toolset in the process. If you're interested in the internal working of this website check out it's code over at Github.",
-          codeGithub: "https://www.google.com"
+          codeGithub: "#"
         },
         {
           codeTitle: "Zombie Painter",
           codeDescription: "A small zombie driving game developed in phaser.js",
-          codeGithub: "https://www.google.com"
+          codeGithub: "#"
         },
         {
           codeTitle: "Space Platformer",
@@ -62,10 +62,6 @@ export default {
     changeProject: function(number) {
       console.log(number);
       this.activeProject = number;
-      this.animateDiv();
-    },
-    animateDiv: function() {
-      console.log("Animation!");
     }
   }
 };
@@ -77,9 +73,10 @@ export default {
   z-index: 1;
   display: flex;
   flex-direction: row;
+  min-height: 32rem;
 
   &__list {
-    margin-right: 50px;
+    margin-right: 5rem;
     flex: 1;
 
     ul {
@@ -121,7 +118,6 @@ export default {
 
   &__overview {
     flex: 2;
-    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -132,6 +128,7 @@ export default {
       justify-content: space-around;
       background: #2b2b2b;
       margin-bottom: 1.5rem;
+      min-height: 100px;
     }
 
     h2,
@@ -144,7 +141,7 @@ export default {
     }
 
     .overview__description {
-      padding: 0 35px;
+      padding: 45px 35px;
       flex: 3;
       background: #2b2b2b;
     }
@@ -161,6 +158,28 @@ export default {
       align-self: center;
       left: -20%;
       position: relative;
+    }
+  }
+}
+
+@media (max-width: 663px) {
+  .code {
+    flex-direction: column;
+
+    &__list {
+      margin: 0;
+    }
+    &__list ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 200px;
+      margin: 0 auto;
+
+      & li {
+        padding: 15px 8px;
+        margin-bottom: 15px;
+      }
     }
   }
 }
@@ -189,7 +208,7 @@ h1 {
   transform: scale(1.2);
 }
 .arrow {
-  height: 85px;
+  height: 100px;
   margin: 0rem 1rem 0rem 0.9rem;
   transform: scale(0.5, 0.75);
 }

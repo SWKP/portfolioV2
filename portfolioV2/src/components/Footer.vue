@@ -20,7 +20,7 @@
     </div>
     <div class="copyright">
       <h3>© Copright {{ new Date().getFullYear() }}.</h3>
-      <h3>All rights reserved. Powered by the internet.</h3>
+      <h3>Powered by the internet. All rights reserved.</h3>
     </div>
   </div>
 </template>
@@ -33,7 +33,9 @@ export default {
 
 <style lang="scss">
 .footer {
-  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 40rem;
   height: 80rem;
   background: #2b2b2b;
   display: flex;
@@ -55,11 +57,11 @@ export default {
   }
 }
 .otherSites {
-  clip-path: polygon(85% 0, 100% 75%, 85% 100%, 15% 100%, 0 75%, 15% 0);
+  clip-path: polygon(85% 0, 100% 64%, 85% 100%, 15% 100%, 0 64%, 15% 0);
   height: 60px;
-  margin: 0px auto 5rem;
+  margin: 0 auto -7rem;
   padding: 5rem 7rem 5rem 7rem;
-  background: #424242;
+  background: #252525;
   flex-grow: 3;
   text-align: center;
   font-family: "adam", Helvetica, Arial, sans-serif;

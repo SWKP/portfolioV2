@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <img class="headerLogo" src="../assets/svg/kp-logo-v1.svg" alt="kp logo">
     <div class="header__inner">
       <h4>
         <span>-</span> Karol Poniatowski
@@ -23,7 +24,7 @@ export default {};
 .header {
   height: 100vh;
   background-color: #3a3a3a;
-  margin-bottom: 270px;
+  margin-bottom: 175px;
   //background: linear-gradient(#868686 -200%, #3a3a3a);
 
   &__inner {
@@ -33,6 +34,7 @@ export default {};
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
+    z-index: 1;
 
     h1 {
       font-family: "adam", Helvetica, Arial, sans-serif;
@@ -121,5 +123,16 @@ export default {};
       z-index: -1;
     }
   }
+}
+
+img.headerLogo {
+  width: 48%;
+  opacity: 0.15;
+  z-index: 1;
+  margin: 0;
+  position: absolute;
+  top: 56%;
+  left: 49%;
+  transform: translate(-50%, -50%);
 }
 </style>
