@@ -78,7 +78,7 @@ export default {
       websites: [
         {
           number: "1",
-          date: "Sep 2018",
+          date: "Sep 2017",
           name: "napa valley film festival",
           url: "nvff.org",
           image:
@@ -185,6 +185,26 @@ export default {
           swapData: false,
           description:
             "A Napa Valley HVAC service company that was previously using a simple Squarespace website and wanted a website where they could share their process."
+        },
+        ,
+        {
+          number: "7",
+          date: "August 2018",
+          name: "CryptoCue",
+          url: "cryptocue.io",
+          image:
+            "https://karolponiatowski.com/projects/images/portfolio/cryptoCue-project.png",
+          full:
+            "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-cryptocue-io-min.png",
+          details: [
+            { feature: "Wordpress" },
+            { feature: "Custom Graphics" },
+            { feature: "Members Area" },
+            { feature: "Brand Development" }
+          ],
+          swapData: false,
+          description:
+            "CryptoCue is a service aimed at helping users make informed crypto currency investment decisions. I rebranded and restructured it's existing content from their old site and made it more clearcut."
         }
       ],
       modal: false,

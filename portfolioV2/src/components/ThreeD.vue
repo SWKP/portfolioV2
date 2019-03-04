@@ -195,14 +195,14 @@ export default {
     width: 640px;
     margin: 0 auto;
     display: block;
-    overflow: hidden;
+    overflow: visible;
 
     .preloader {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: -1;
+      z-index: 0;
     }
   }
 }
@@ -214,7 +214,7 @@ export default {
   height: 2000vh;
   position: absolute;
   top: -50vh;
-  z-index: -1;
+  z-index: 2;
 }
 
 .One {

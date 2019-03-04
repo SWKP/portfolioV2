@@ -34,7 +34,7 @@ export default {};
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
-    z-index: 1;
+    z-index: 0;
 
     h1 {
       font-family: "adam", Helvetica, Arial, sans-serif;
@@ -127,7 +127,7 @@ export default {};
 
 img.headerLogo {
   width: 48%;
-  opacity: 0.15;
+  opacity: 0.07;
   z-index: 1;
   margin: 0;
   position: absolute;

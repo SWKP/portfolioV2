@@ -19,8 +19,8 @@
       <h5>Codedefrag.com</h5>
     </div>
     <div class="copyright">
-      <h3>© Copright {{ new Date().getFullYear() }}.</h3>
-      <h3>Powered by the internet. All rights reserved.</h3>
+      <h3>© Copright {{ new Date().getFullYear() }} Karol Poniatowski.</h3>
+      <h3>All rights reserved.</h3>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
 <style lang="scss">
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   margin-top: 40rem;
   height: 80rem;
   background: #2b2b2b;
