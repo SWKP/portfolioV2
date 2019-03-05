@@ -59,7 +59,8 @@ export default {
   methods: {
     currentRout: function(data) {
       bus.$emit("routChanged", data);
-      console.log("routeChanged");
+      //console.log("routeChanged");
+      //console.log(this.$route.fullPath);
     },
     changeTagline: function() {
       switch (this.$route.fullPath) {
@@ -100,6 +101,8 @@ export default {
   //background: #494949;
   max-width: 120rem;
   margin: 0 auto;
+  margin-bottom: 30rem;
+
   z-index: 1;
 
   .projectsTitle {

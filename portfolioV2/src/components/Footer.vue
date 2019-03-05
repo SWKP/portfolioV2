@@ -35,7 +35,7 @@ export default {
 .footer {
   position: relative;
   z-index: 0;
-  margin-top: 40rem;
+  margin-top: 10rem;
   height: 80rem;
   background: #2b2b2b;
   display: flex;

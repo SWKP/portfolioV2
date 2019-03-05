@@ -55,6 +55,7 @@
       v-bind:class="{makeVisible: modal}"
       v-on:click="currentModel = 10, modal = false"
     >
+      <img class="preloader2" src="../assets/preloader/preloader.gif" alt>
       <div class="sketchfab-embed-wrapper">
         <iframe
           width="640"
@@ -65,7 +66,6 @@
           mozallowfullscreen="true"
           webkitallowfullscreen="true"
         ></iframe>
-        <img class="preloader" src="../assets/preloader/preloader.gif" alt>
       </div>
     </div>
   </div>
@@ -196,14 +196,15 @@ export default {
     margin: 0 auto;
     display: block;
     overflow: visible;
-
-    .preloader {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-    }
+    position: relative;
+    z-index: 99;
+  }
+  .preloader2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
   }
 }
 

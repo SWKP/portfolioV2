@@ -17,6 +17,7 @@ import Code from './components/Code';
 import ThreeD from './components/ThreeD';
 import About from "./components/About";
 import Contact from './components/Contact';
+import NotFound from './components/NotFound';
 
 import Sticky from 'vue-sticky-directive'
 Vue.use(Sticky);
@@ -42,6 +43,14 @@ const routes = [{
   {
     path: '/contact',
     component: Contact
+  },
+  {
+    path: '/404',
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ];
 
