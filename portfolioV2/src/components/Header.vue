@@ -46,7 +46,8 @@ export default {};
 
       @media (max-width: 760px) {
         letter-spacing: 1rem;
-        font-size: 4rem;
+        line-height: 6.5rem;
+        font-size: 6rem;
       }
     }
     h4 {
@@ -86,7 +87,7 @@ export default {};
       position: absolute;
       left: 50%;
       margin-left: -3px;
-      top: 135px;
+      top: 100%;
 
       p {
         font-family: "adam", Helvetica, Arial, sans-serif;

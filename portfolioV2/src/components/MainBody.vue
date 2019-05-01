@@ -141,7 +141,7 @@ export default {
         padding: 4rem;
         font-size: 2.5rem;
         letter-spacing: 0.3rem;
-        text-align: left;
+        text-align: right;
       }
     }
   }

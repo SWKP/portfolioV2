@@ -154,7 +154,7 @@ export default {
   height: 6rem;
   width: 29rem;
   background: #2b2b2b;
-  top: 0.05rem;
+  top: -0.1rem;
   border-bottom: 3px solid #3a3a3a;
   margin-bottom: -6rem;
 

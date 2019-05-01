@@ -316,13 +316,17 @@ ul {
     display: flex;
     min-width: 500px;
     @media (max-width: 560px) {
-      clip-path: polygon(100% 0, 100% 34%, 60% 34%, 60% 100%, 0% 100%, 0% 0);
+      clip-path: polygon(100% 0, 100% 33%, 16% 33%, 16% 100%, 0% 100%, 0% 0);
     }
   }
 
   &__date {
     border-right: 4px solid #3a3a3a;
     width: 26%;
+
+    @media (max-width: 560px) {
+      width: 20%;
+    }
 
     h4 {
       position: relative;
@@ -387,11 +391,15 @@ ul {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+
+        @media (max-width: 560px) {
+          text-align: center;
+          width: 69%;
+          font-size: 2rem;
+        }
       }
     }
 
-    .details {
-    }
     .details__title {
       width: 50%;
       text-align: center;
@@ -407,6 +415,7 @@ ul {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        line-height: 3rem;
       }
     }
 
@@ -488,6 +497,10 @@ ul {
   clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
   top: 0;
   transition: all 0.2s ease-out;
+
+  @media (max-width: 560px) {
+    padding: 5rem 0 15rem 0;
+  }
 
   & h4 {
     color: #565656;
