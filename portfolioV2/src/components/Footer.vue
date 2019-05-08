@@ -16,7 +16,7 @@
     </div>
     <div class="otherSites">
       <h4>My Other Sites</h4>
-      <h5>Codedefrag.com</h5>
+      <a href="http://codedefrag.com" target="_blank"><h5>Codedefrag.com</h5></a>
     </div>
     <div class="copyright">
       <h3>© Copright {{ new Date().getFullYear() }} Karol Poniatowski.</h3>
@@ -71,6 +71,7 @@ export default {
 
   @media (max-width: 400px) {
     padding: 5rem 3rem 5rem 3rem;
+    margin-top: -25px;
   }
 
   h4 {

@@ -12,7 +12,7 @@
             </div>
             <div class="project__data">
               <div class="url__title" v-on:click="website.swapData = !website.swapData">
-                <h2>{{ website.url }}</h2>
+                <h2>{{ website.url }} &#9654;</h2>
               </div>
               <transition name="fade" mode="out-in">
                 <div class="details" v-if="!website.swapData" key="details">
@@ -52,15 +52,21 @@
     </div>
     <!-- MODALPOPUP STARTS HERE -->
     <transition name="modal">
-      <div
-        class="modal"
-        v-show="modal"
-        v-on:click=" modalUrl=' ', modal = false, toggleBodyClass('removeClass', 'noScroll')"
-        transition="fadeIn"
-      >
+      <div class="modal" v-show="modal" transition="fadeIn">
         <div class="modalInner">
-          <img class="full" v-bind:src="modalUrl">
+          <img class="full" v-if="modalItem === 'main'" v-bind:src="modalUrl">
+          <div class="modal__description" v-if="modalItem === 'desc'">DESCRIPTION TEXT WILL GO HERE!</div>
+          <div class="modal__concept" v-if="modalItem === 'concept'">CONCEPTS WILL GO HERE!</div>
           <img class="preloader" src="../assets/preloader/preloader.gif" alt>
+          <div class="modal__menu">
+            <button v-on:click="modalItem = 'main'">SITE</button>
+            <button v-on:click="modalItem = 'concept'">CONCEPT</button>
+            <button v-on:click="modalItem = 'desc'">DESCRIPTION</button>
+            <button
+              class="closeModal"
+              v-on:click=" modalUrl=' ', modal = false, toggleBodyClass('removeClass', 'noScroll')"
+            >X</button>
+          </div>
         </div>
       </div>
     </transition>
@@ -75,6 +81,7 @@ export default {
   data() {
     return {
       search: "",
+      modalItem: "concept",
       websites: [
         {
           number: "1",
@@ -523,6 +530,13 @@ ul {
   width: 100vw;
   transition: all 0.3s ease;
 }
+.closeModal {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 0;
+  right: 0;
+}
 
 .modalInner {
   background-color: #1a1e1ecc;
@@ -546,6 +560,43 @@ ul {
     transform: translateX(-50%);
     z-index: 90;
   }
+}
+
+.modal__menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100px;
+  height: 400px;
+  background: blue;
+  right: 50px;
+  top: 25%;
+
+  button {
+    height: 50px;
+  }
+}
+
+.modal__description {
+  //@include centerElement;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: green;
+  width: 200px;
+  height: 200px;
+}
+
+.modal__concept {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: teal;
+  width: 200px;
+  height: 200px;
 }
 
 .fade-enter-active,
