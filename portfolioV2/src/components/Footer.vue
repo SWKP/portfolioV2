@@ -16,7 +16,9 @@
     </div>
     <div class="otherSites">
       <h4>My Other Sites</h4>
-      <a href="http://codedefrag.com" target="_blank"><h5>Codedefrag.com</h5></a>
+      <a href="http://codedefrag.com" target="_blank">
+        <h5>Codedefrag.com</h5>
+      </a>
     </div>
     <div class="copyright">
       <h3>© Copright {{ new Date().getFullYear() }} Karol Poniatowski.</h3>
@@ -68,6 +70,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index: 2;
 
   @media (max-width: 400px) {
     padding: 5rem 3rem 5rem 3rem;
@@ -87,6 +90,11 @@ export default {
     font-weight: 900;
     color: #c1d034;
     letter-spacing: 0.75rem;
+    transition: all 0.3s ease-out;
+  }
+
+  h5:hover {
+    color: var(--main-highlight-color);
   }
 }
 .copyright {

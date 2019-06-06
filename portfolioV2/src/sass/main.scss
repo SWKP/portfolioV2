@@ -23,6 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  text-decoration: none;
 }
 
 /* Set html box sizing to border-box so when containers are given widths and than margins/padding
@@ -45,10 +46,11 @@ p {
 
 p {
   color: #a3a3a3;
-  font-size: 1.8rem;
-  font-family: "brandon", Helvetica, Arial, sans-serif;
+  font-family: "Poppins";
+  font-size: 1.6rem;
+  ;
+  line-height: 1.8;
   max-width: 60ch;
-  line-height: 2.5rem;
   letter-spacing: .03rem;
   color: #bfbfbf;
 }
