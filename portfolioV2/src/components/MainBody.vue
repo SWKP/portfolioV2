@@ -106,6 +106,8 @@ export default {
   z-index: 1;
 
   .projectsTitle {
+    position: relative;
+    left: 0;
     display: inline-block;
     position: absolute;
     width: 45vw;
@@ -115,6 +117,12 @@ export default {
     margin-top: 25rem;
     -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
+    transition: all 0.3s ease-out;
+    transition-delay: 0.05s;
+
+    &:hover {
+      left: -20px;
+    }
 
     @media (max-width: 450px) {
       width: 70vw;
@@ -128,7 +136,7 @@ export default {
       padding: 4rem 5vw 5rem 0;
       text-align: right;
       font-family: "adam", Helvetica, Arial, sans-serif;
-      color: #777777;
+      color: #3a3a3a;
       font-weight: 100;
       font-size: 3rem;
       letter-spacing: 2rem;

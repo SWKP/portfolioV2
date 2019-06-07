@@ -138,6 +138,7 @@ export default {
     transition: all 0.3s;
     background: #2b2b2b;
     height: 51px;
+    margin: 6px 2px;
 
     &:hover {
       color: white;
@@ -148,11 +149,11 @@ export default {
 
 .search {
   position: relative;
-  right: -37rem;
+  right: -30rem;
   -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(10% 0, 100% 0, 100% 100%, 20% 100%);
   height: 6rem;
-  width: 29rem;
+  width: 38rem;
   background: #2b2b2b;
   top: -0.1rem;
   border-bottom: 3px solid #3a3a3a;
@@ -164,11 +165,12 @@ export default {
 
   input[type="text"] {
     margin: 1.2rem 0 1rem 9rem;
-    padding: 0.75rem;
+    padding: 0.75rem 0.75rem 0.75rem 2rem;
     background: #bcbcbc;
     border: none;
     font-family: "brandon", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
+    outline: none;
   }
 
   button {
@@ -176,6 +178,7 @@ export default {
     border: none;
     transform: scale(2);
     margin-left: 15px;
+    outline: none;
   }
 
   .fa-search:before {
@@ -186,6 +189,7 @@ export default {
   position: relative;
   z-index: 99;
   background-image: linear-gradient(#86867500, #86867500 62%, #bfc239 61%);
+  transition: all 0.3s ease-out;
 
   @media (max-width: 670px) {
     background-image: linear-gradient(#86867500, #86867500 85%, #bfc239 60%);

@@ -76,7 +76,8 @@ h5 {
 }
 
 p {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
 }
 
 //Variables
@@ -88,4 +89,24 @@ p {
 .container {
   background: #3a3a3a;
   overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 17px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2b2b2b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bcbcbc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-highlight-color);
 }

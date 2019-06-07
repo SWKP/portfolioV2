@@ -11,13 +11,21 @@
               </h4>
             </div>
             <div class="project__data">
-              <div class="url__title" v-on:click="website.swapData = !website.swapData">
-                <h2>{{ website.url }} &#9654;</h2>
+              <div class="url__title">
+                <h2>{{ website.url }}</h2>
               </div>
               <transition name="fade" mode="out-in">
-                <div class="details" v-if="!website.swapData" key="details">
+                <div
+                  class="details"
+                  v-if="!website.swapData"
+                  key="details"
+                  v-on:click="website.swapData = !website.swapData"
+                >
                   <div class="details__title">
-                    <h4>Project Details</h4>
+                    <h4>
+                      Project Details
+                      <i class="fa fa-search"></i>
+                    </h4>
                   </div>
                   <div class="details__list">
                     <ul>
@@ -25,7 +33,12 @@
                     </ul>
                   </div>
                 </div>
-                <div class="details" v-else-if="website.swapData" key="desc">
+                <div
+                  class="details"
+                  v-else-if="website.swapData"
+                  key="desc"
+                  v-on:click="website.swapData = !website.swapData"
+                >
                   <div class="details__description">
                     <p>{{ website.description }}</p>
                   </div>
@@ -33,9 +46,9 @@
               </transition>
             </div>
           </div>
-          <!-- On click multiple things happen -->
+          <!-- On click project image multiple things will happen -->
           <div
-            v-on:click="modalUrl=website.full, modal = true, toggleBodyClass('addClass', 'noScroll')"
+            v-on:click="modalUrl=website.full, modal = true, toggleBodyClass('addClass', 'noScroll'), projectNumber(website.number)"
             class="project__image"
             :style="{ backgroundImage: 'url(' + website.image + ')' }"
           >
@@ -45,7 +58,7 @@
       </li>
     </ul>
     <div class="noResults">
-      <h1 v-if="!filteredSites.length">No results.</h1>
+      <h1 v-if="!filteredSites.length">Sorry, no results.</h1>
     </div>
     <div class="loadMore">
       <h4>Load More Websites</h4>
@@ -55,17 +68,24 @@
       <div class="modal" v-show="modal" transition="fadeIn">
         <div class="modalInner">
           <img class="full" v-if="modalItem === 'main'" v-bind:src="modalUrl">
-          <div class="modal__description" v-if="modalItem === 'desc'">DESCRIPTION TEXT WILL GO HERE!</div>
+
+          <div class="modal__description" v-if="modalItem === 'desc'">
+            <h3>{{ websites[modalNumber].name}}</h3>
+            <h4>Brief:</h4>
+            <p>{{ websites[modalNumber].description}}</p>
+            <p>{{ websites[modalNumber].descriptionFull}}</p>
+          </div>
+
           <div class="modal__concept" v-if="modalItem === 'concept'">CONCEPTS WILL GO HERE!</div>
           <img class="preloader" src="../assets/preloader/preloader.gif" alt>
           <div class="modal__menu">
             <button v-on:click="modalItem = 'main'">SITE</button>
+            <button v-on:click="modalItem = 'desc'">INFO</button>
             <button v-on:click="modalItem = 'concept'">CONCEPT</button>
-            <button v-on:click="modalItem = 'desc'">DESCRIPTION</button>
             <button
               class="closeModal"
               v-on:click=" modalUrl=' ', modal = false, toggleBodyClass('removeClass', 'noScroll')"
-            >X</button>
+            >CLOSE</button>
           </div>
         </div>
       </div>
@@ -92,6 +112,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/nvff-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-nvff-org-min.png",
+          concept: "",
           details: [
             { feature: "Wordpress" },
             { feature: "High traffic Ecommerce" },
@@ -100,7 +121,8 @@ export default {
           ],
           swapData: false,
           description:
-            "A collaborative wordpress website that needed to support high traffic e-commerce ticket sales and live events for the 2017 Napa Valley film festival."
+            "A collaborative wordpress website that needed to support high traffic e-commerce ticket sales and live events for the 2017 Napa Valley film festival.",
+          descriptionFull: "Nvff full description here."
         },
         {
           number: "2",
@@ -111,6 +133,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/dixicoin-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-dixicoin-net-min.png",
+          concept: "",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -118,7 +141,8 @@ export default {
           ],
           swapData: false,
           description:
-            "Dixicoin was a previously established digital cryptocurrency for gamers that needed a new website. The website was built in Bootstrap with a PHP enabled contact form."
+            "Dixicoin was a previously established digital cryptocurrency for gamers that needed a new website. The website was built in Bootstrap with a PHP enabled contact form.",
+          descriptionFull: "Dixicoin full description here."
         },
         {
           number: "3",
@@ -129,6 +153,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/petalumaMuseum-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-petalumamuseum-min.png",
+          concept: "",
           details: [
             { feature: "Wordpress" },
             { feature: "Agile development" },
@@ -136,7 +161,8 @@ export default {
           ],
           swapData: false,
           description:
-            "The Petaluma Museum is a non-profit that needed a new updated website. I worked on a Scrum team primarily as a web designer but I helped with the development process and bug fixes."
+            "The Petaluma Museum is a non-profit that needed a new updated website. I worked on a Scrum team primarily as a web designer but I helped with the development process and bug fixes.",
+          descriptionFull: "Petaluma Museum full description here."
         },
         {
           number: "4",
@@ -147,6 +173,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/roundOne-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-roundone-win-min.png",
+          concept: "",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -154,7 +181,8 @@ export default {
           ],
           swapData: false,
           description:
-            "Roundone was a cryptocurrency initial coin offering where users could place bets on teams competing in of tournament events. The website was built in Bootstrap."
+            "Roundone was a cryptocurrency initial coin offering where users could place bets on teams competing in of tournament events. The website was built in Bootstrap.",
+          descriptionFull: "Roundone full description here."
         },
         {
           number: "5",
@@ -165,6 +193,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/feast-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-feastitforward-min.png",
+          concept: "",
           details: [
             { feature: "Wordpress" },
             { feature: "PHP" },
@@ -173,7 +202,8 @@ export default {
           ],
           swapData: false,
           description:
-            "Feast it Forward is a food network with a wine tasting studio in Napa, CA. Their website required an event calendar system, e-commerce store integration and SEO optimization."
+            "Feast it Forward is a food network with a wine tasting studio in Napa, CA. Their website required an event calendar system, e-commerce store integration and SEO optimization.",
+          descriptionFull: "Feast it Forward full description here."
         },
         {
           number: "6",
@@ -184,6 +214,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/jeremyjack-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-jeremyjackinc-min.png",
+          concept: "",
           details: [
             { feature: "Bootstrap" },
             { feature: "Custom SVG" },
@@ -191,9 +222,9 @@ export default {
           ],
           swapData: false,
           description:
-            "A Napa Valley HVAC service company that was previously using a simple Squarespace website and wanted a website where they could share their process."
+            "A Napa Valley HVAC service company that was previously using a simple Squarespace website and wanted a website where they could share their process.",
+          descriptionFull: "Jeremy Jack full description here."
         },
-        ,
         {
           number: "7",
           date: "August 2018",
@@ -203,6 +234,7 @@ export default {
             "https://karolponiatowski.com/projects/images/portfolio/cryptoCue-project.png",
           full:
             "https://karolponiatowski.com/projects/images/portfolio/Websites-FullScreenshots-optimized/screencapture-cryptocue-io-min.png",
+          concept: "",
           details: [
             { feature: "Wordpress" },
             { feature: "Custom Graphics" },
@@ -211,11 +243,13 @@ export default {
           ],
           swapData: false,
           description:
-            "CryptoCue is a service aimed at helping users make informed crypto currency investment decisions. I rebranded and restructured it's existing content from their old site and made it more clearcut."
+            "CryptoCue is a service aimed at helping users make informed crypto currency investment decisions. I rebranded and restructured it's existing content from their old site and made it more clearcut.",
+          descriptionFull: "CryptoCue full description here."
         }
       ],
       modal: false,
       modalUrl: "empty",
+      modalNumber: "1",
       gallery: [
         {
           source:
@@ -270,6 +304,10 @@ export default {
     });
   },
   methods: {
+    projectNumber: function(number) {
+      this.modalNumber = number - 1;
+      console.log("Modal number is " + this.modalNumber);
+    },
     toggleBodyClass(addRemoveClass, className) {
       const el = document.body;
 
@@ -324,15 +362,17 @@ ul {
     min-width: 500px;
     @media (max-width: 560px) {
       clip-path: polygon(100% 0, 100% 33%, 16% 33%, 16% 100%, 0% 100%, 0% 0);
+      background-color: #2b2b2b00;
     }
   }
 
   &__date {
-    border-right: 4px solid #3a3a3a;
+    border-right: 5px solid #3a3a3a;
     width: 26%;
 
     @media (max-width: 560px) {
       width: 20%;
+      border-right: none;
     }
 
     h4 {
@@ -343,11 +383,11 @@ ul {
       top: 13rem;
       margin-left: -3rem;
       margin-right: -3rem;
-      font-size: 0.75rem;
+      font-size: 1.1rem;
       font-weight: 100;
       letter-spacing: 1rem;
       text-align: center;
-      color: #a3a3a3;
+      color: #3a3a3a;
       line-height: 1.5rem;
 
       span {
@@ -374,21 +414,9 @@ ul {
       flex-basis: 85px;
       width: 110%;
       text-align: center;
-      border-bottom: 4px solid #3a3a3a;
+      border-bottom: 5px solid #3a3a3a;
       transition: all 0.3s;
-      cursor: pointer;
       padding-right: 40px;
-
-      &:hover {
-        position: relative;
-        left: -20px;
-        background: var(--main-highlight-color);
-        padding-right: 60px;
-      }
-      &:hover h2 {
-        color: white;
-        position: relative;
-      }
 
       h2 {
         color: #a3a3a3;
@@ -401,18 +429,37 @@ ul {
 
         @media (max-width: 560px) {
           text-align: center;
-          width: 69%;
+          width: 85%;
           font-size: 2rem;
+          color: #3a3a3a;
+          font-size: 2.5rem;
+          text-align: right;
         }
       }
     }
 
     .details__title {
+      cursor: pointer;
+      position: relative;
       width: 50%;
       text-align: center;
       height: 50px;
-      border-right: 4px solid #3a3a3a;
-      border-bottom: 4px solid #3a3a3a;
+      border-right: 5px solid #3a3a3a;
+      border-bottom: 5px solid #3a3a3a;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        position: relative;
+        background: var(--main-highlight-color);
+      }
+      &:hover h4 {
+        color: #3a3a3a;
+        position: relative;
+      }
+
+      .fa-search:before {
+        color: #3a3a3a;
+      }
 
       h4 {
         color: #a3a3a3;
@@ -427,6 +474,7 @@ ul {
     }
 
     .details__list {
+      cursor: pointer;
       flex: 1;
       ul {
         margin-top: 1.25rem;
@@ -435,15 +483,19 @@ ul {
 
         li {
           color: #a3a3a3;
-          font-size: 1.5rem;
-          font-family: "brandon", Helvetica, Arial, sans-serif;
-          font-weight: 100;
+          font-family: "Poppins";
+          font-size: 1.4rem;
+          font-weight: 300;
         }
       }
     }
 
     .details__description {
+      cursor: pointer;
       p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 300;
         max-width: 280px;
         margin: 15px 0 0 25px;
       }
@@ -462,6 +514,7 @@ ul {
 
     @media (max-width: 560px) {
       margin-left: -60rem;
+      filter: blur(4px);
     }
 
     &::before {
@@ -489,6 +542,10 @@ ul {
       font-family: "adam", Helvetica, Arial, sans-serif;
       font-size: 3rem;
       font-weight: 100;
+
+      @media (max-width: 560px) {
+        visibility: hidden;
+      }
     }
   }
 }
@@ -510,7 +567,7 @@ ul {
   }
 
   & h4 {
-    color: #565656;
+    color: #3a3a3a;
     font-family: "adam", Helvetica, Arial, sans-serif;
     letter-spacing: 1vw;
   }
@@ -531,8 +588,6 @@ ul {
   transition: all 0.3s ease;
 }
 .closeModal {
-  width: 40px;
-  height: 40px;
   position: relative;
   top: 0;
   right: 0;
@@ -567,26 +622,64 @@ ul {
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  width: 100px;
-  height: 400px;
-  background: blue;
-  right: 50px;
-  top: 25%;
+  width: 125px;
+  height: 300px;
+  background: #2b2b2b;
+  right: 16px;
+  top: 35%;
+  padding-right: 25px;
+  clip-path: polygon(-15% 19%, 0 19%, 100% 0, 100% 100%, 0% 81%, -15% 81%);
 
   button {
-    height: 50px;
+    position: relative;
+    left: 0;
+    text-transform: uppercase;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    background: #bcbcbc;
+    color: #2b2b2b;
+    font-family: "Brandon";
+    cursor: pointer;
+    outline: none;
+    margin: 2.5px 0;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    &:hover {
+      position: relative;
+      left: -10px;
+      background: var(--main-highlight-color);
+    }
   }
 }
 
 .modal__description {
-  //@include centerElement;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: green;
-  width: 200px;
-  height: 200px;
+  background: #2b2b2b;
+  padding: 20px;
+  max-width: 800px;
+  z-index: 99;
+
+  h3 {
+    font-family: "Brandon";
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+
+  h4 {
+    text-align: left;
+    font-family: "Brandon";
+    font-weight: 300;
+    margin-left: 10px;
+    color: #474747;
+    text-transform: uppercase;
+  }
+
+  p {
+  }
 }
 
 .modal__concept {
@@ -626,6 +719,8 @@ ul {
   h1 {
     padding: 4rem 10rem 5rem;
     text-align: center;
+    font-family: "Poppins";
+    font-weight: 100;
   }
 }
 
