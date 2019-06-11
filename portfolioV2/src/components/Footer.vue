@@ -37,7 +37,7 @@ export default {
 .footer {
   position: relative;
   z-index: 0;
-  margin-top: 10rem;
+  margin-top: 35rem;
   height: 80rem;
   background: #2b2b2b;
   display: flex;
@@ -80,7 +80,7 @@ export default {
   h4 {
     flex: 1;
     font-size: 1.75rem;
-    color: #2b2b2b;
+    color: #424242;
     padding-top: 1rem;
   }
   h5 {
@@ -108,7 +108,7 @@ export default {
     color: #424242;
     font-size: 1.5rem;
     letter-spacing: 0.7rem;
-    line-height: 5rem;
+    line-height: 2.5rem;
 
     @media (max-width: 750px) {
       letter-spacing: 0.5rem;

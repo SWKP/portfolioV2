@@ -106,17 +106,17 @@ export default {
   z-index: 1;
 
   .projectsTitle {
-    position: relative;
-    left: 0;
+    position: relative !important;
     display: inline-block;
+    margin-top: 10rem;
     position: absolute;
     width: 45vw;
     min-width: 35rem;
     left: 0px;
+    top: 100px;
     background: #bcbcbc;
-    margin-top: 25rem;
     -webkit-clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
     transition: all 0.3s ease-out;
     transition-delay: 0.05s;
 
@@ -128,13 +128,9 @@ export default {
       width: 70vw;
     }
 
-    @media (max-width: 660px) {
-      margin-top: 55rem;
-    }
-
     h1 {
-      padding: 4rem 5vw 5rem 0;
-      text-align: right;
+      padding: 5rem;
+      text-align: left;
       font-family: "adam", Helvetica, Arial, sans-serif;
       color: #3a3a3a;
       font-weight: 100;
@@ -149,7 +145,6 @@ export default {
         padding: 4rem;
         font-size: 2.5rem;
         letter-spacing: 0.3rem;
-        text-align: right;
       }
     }
   }

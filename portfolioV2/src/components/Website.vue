@@ -3,6 +3,7 @@
     <ul>
       <li v-for="(website, index) in filteredSites" transition="stagger" stagger="100">
         <div class="project">
+          <img class="expandIcon" src="../assets/svg/expand-arrow.svg" alt="expand icon">
           <div class="project__info">
             <div class="project__date">
               <h4>
@@ -48,7 +49,7 @@
           </div>
           <!-- On click project image multiple things will happen -->
           <div
-            v-on:click="modalUrl=website.full, modal = true, toggleBodyClass('addClass', 'noScroll'), projectNumber(website.number)"
+            v-on:click="modalUrl=website.full, modal = true, toggleBodyClass('addClass', 'noScroll'), projectNumber(website.number), modalItem = 'main'"
             class="project__image"
             :style="{ backgroundImage: 'url(' + website.image + ')' }"
           >
@@ -71,12 +72,16 @@
 
           <div class="modal__description" v-if="modalItem === 'desc'">
             <h3>{{ websites[modalNumber].name}}</h3>
-            <h4>Brief:</h4>
             <p>{{ websites[modalNumber].description}}</p>
-            <p>{{ websites[modalNumber].descriptionFull}}</p>
+            <ul class="modal__details">
+              <li v-for="detail in websites[modalNumber].details">{{ detail.feature }}</li>
+            </ul>
           </div>
 
-          <div class="modal__concept" v-if="modalItem === 'concept'">CONCEPTS WILL GO HERE!</div>
+          <div class="modal__concept" v-if="modalItem === 'concept'">
+            <img src="../assets/svg/exclamation-triangle.svg" alt="exclamation">
+            <h4>Will be updated with design concepts in the future.</h4>
+          </div>
           <img class="preloader" src="../assets/preloader/preloader.gif" alt>
           <div class="modal__menu">
             <button v-on:click="modalItem = 'main'">SITE</button>
@@ -101,7 +106,7 @@ export default {
   data() {
     return {
       search: "",
-      modalItem: "concept",
+      modalItem: "main",
       websites: [
         {
           number: "1",
@@ -353,6 +358,20 @@ ul {
   display: flex;
   overflow: hidden;
 
+  img.expandIcon {
+    position: absolute;
+    z-index: 3;
+    width: 25px;
+    right: 0;
+    margin: 10px 10px 0px 0px;
+    opacity: 0.25;
+    pointer-events: none;
+
+    @media (max-width: 560px) {
+      margin: 207px 15px 0px 0px;
+    }
+  }
+
   &__info {
     background-color: #2b2b2b;
     flex: 1;
@@ -417,6 +436,10 @@ ul {
       border-bottom: 5px solid #3a3a3a;
       transition: all 0.3s;
       padding-right: 40px;
+
+      @media (max-width: 560px) {
+        width: 80vw;
+      }
 
       h2 {
         color: #a3a3a3;
@@ -556,14 +579,14 @@ ul {
   text-align: center;
   margin: 1vw 0 10vw 0;
   background-color: #bcbcbc;
-  padding: 5rem 0 8rem 0;
+  padding: 5rem 0 10rem 0;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 50% 100%, 0% 50%);
   top: 0;
   transition: all 0.2s ease-out;
 
   @media (max-width: 560px) {
-    padding: 5rem 0 15rem 0;
+    padding: 5rem 0 12rem 0;
   }
 
   & h4 {
@@ -586,6 +609,14 @@ ul {
   left: 0;
   width: 100vw;
   transition: all 0.3s ease;
+
+  &__details {
+    list-style-type: circle !important;
+    text-align: left;
+    color: #bcbcbc;
+    font-family: "Poppins";
+    font-size: 1.5rem;
+  }
 }
 .closeModal {
   position: relative;
@@ -601,6 +632,7 @@ ul {
   text-align: center;
 
   .full {
+    min-width: 350px;
     position: relative;
     width: 75vw;
     cursor: pointer;
@@ -629,6 +661,31 @@ ul {
   top: 35%;
   padding-right: 25px;
   clip-path: polygon(-15% 19%, 0 19%, 100% 0, 100% 100%, 0% 81%, -15% 81%);
+  z-index: 99;
+
+  @media (max-width: 700px) {
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    background: #2b2b2b;
+    top: 94vh;
+    right: 0;
+    bottom: 0;
+    padding-right: 25px;
+
+    clip-path: none;
+    z-index: 99;
+    clip-path: none;
+    button {
+      margin: 5px 2.5px !important;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        left: 0 !important;
+        bottom: 10px !important;
+      }
+    }
+  }
 
   button {
     position: relative;
@@ -659,14 +716,17 @@ ul {
   left: 50%;
   transform: translate(-50%, -50%);
   background: #2b2b2b;
-  padding: 20px;
+  padding: 30px 50px;
   max-width: 800px;
   z-index: 99;
+  clip-path: polygon(10% 0, 0 15%, 0 100%, 90% 100%, 100% 85%, 100% 0);
+  min-width: 400px;
 
   h3 {
     font-family: "Brandon";
     text-transform: capitalize;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
 
   h4 {
@@ -679,17 +739,37 @@ ul {
   }
 
   p {
+    margin-bottom: 25px;
   }
 }
-
 .modal__concept {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: teal;
-  width: 200px;
-  height: 200px;
+  background: #2b2b2b;
+  width: 400px;
+  min-height: 200px;
+  z-index: 91;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  clip-path: polygon(10% 0, 0 15%, 0 100%, 90% 100%, 100% 85%, 100% 0);
+
+  img {
+    width: 50px;
+    opacity: 0.7;
+  }
+
+  h4 {
+    color: #bcbcbc;
+    font-family: "Brandon";
+    text-transform: uppercase;
+    margin: 15px 0;
+    font-size: 1.75rem;
+  }
 }
 
 .fade-enter-active,

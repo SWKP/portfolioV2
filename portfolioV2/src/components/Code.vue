@@ -155,6 +155,7 @@ export default {
         font-weight: 100;
         font-size: 16px;
         text-transform: uppercase;
+        line-height: 2.5rem;
       }
     }
   }
@@ -176,11 +177,14 @@ export default {
 
     h2,
     .overview__description {
+      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-width: 336px;
+      margin: 0 auto;
     }
 
     .overview__description {
@@ -201,6 +205,10 @@ export default {
       align-self: center;
       left: -20%;
       position: relative;
+
+      @media (max-width: 750px) {
+        font-size: 2rem;
+      }
     }
   }
 }
@@ -211,6 +219,7 @@ export default {
 
     &__list {
       margin: 0;
+      margin-bottom: 40px;
     }
     &__list ul {
       display: flex;
@@ -254,6 +263,7 @@ h1 {
   height: 60px;
   margin: 2rem 1rem 0rem 0.9rem;
   transform: scale(0.5, 0.75);
+  visibility: hidden;
 }
 
 //Animations
@@ -313,6 +323,10 @@ button:hover {
   transform: translateX(-50%) scale(1);
   filter: grayscale(0.75) blur(2px);
   transition: all 0.3s ease-out;
+
+  @media (max-width: 700px) {
+    filter: grayscale(0) blur(0);
+  }
 }
 
 .code__image img:hover {
